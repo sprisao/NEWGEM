@@ -1,14 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useGlobalContext} from '../context';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Test = () => {
   const {cafes} = useGlobalContext();
-
-  console.log(cafes);
   return (
     <View>
-      <Text></Text>
+      <MaterialCommunityIcons name="home" color="black" size={30} />
     </View>
   );
 };
