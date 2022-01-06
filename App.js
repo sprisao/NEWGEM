@@ -14,7 +14,6 @@ const App = () => {
   return (
     <StoreProvider>
       <SafeAreaView>
-        <Text>내 앱이당</Text>
         <Test></Test>
       </SafeAreaView>
     </StoreProvider>
