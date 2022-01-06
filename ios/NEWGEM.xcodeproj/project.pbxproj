@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* NEWGEMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NEWGEMTests.m */; };
+		127645BC523C465FAC5DC9BD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7616FDE9267041DFACE47DC8 /* NotoSansKR-Light.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		16078E38F6644D4CAA805BFB /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5598FF04804555A8A8377B /* NotoSansKR-Bold.otf */; };
+		1E8D771409C64DAAA955A71E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B124675A9E434DCD9BA22536 /* NotoSansKR-Regular.otf */; };
+		2E2794A5B02F447894B8B266 /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FED20D7A46F417B94062C93 /* AppleSDGothicNeoM.ttf */; };
 		48630AAE0EF9A3BAF1F2D3B9 /* libPods-NEWGEM-NEWGEMTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690720F0814AE4B2EDE00467 /* libPods-NEWGEM-NEWGEMTests.a */; };
+		58D93586DFEF4B9EA7373298 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1049DC51F784F2E9CD86B4A /* NotoSansKR-Medium.otf */; };
 		81691C3FFA3BDE9BBFAAC8D8 /* libPods-NEWGEM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDCCA4247795FE5FE84F780 /* libPods-NEWGEM.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		E899ED0786634E39B2F93DEA /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AEE636AAEF943AE9C8842B4 /* AppleSDGothicNeoB.ttf */; };
-		DD151762116F41C0A145A8B4 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEDC9DA13A4B3CA9C2A07E /* AppleSDGothicNeoEB.ttf */; };
 		968B72F6EC09417E9F1B08D6 /* AppleSDGothicNeoH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FCB4C5A659F4C0C81CF3C6C /* AppleSDGothicNeoH.ttf */; };
-		AC729A086B4F4E4E9CE1C1FF /* AppleSDGothicNeoL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A960BADF15E24E94AE6A440D /* AppleSDGothicNeoL.ttf */; };
-		2E2794A5B02F447894B8B266 /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FED20D7A46F417B94062C93 /* AppleSDGothicNeoM.ttf */; };
-		9BDFE104CA6A404184B75432 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 700570FC72EC4F3F9DC1BBB0 /* AppleSDGothicNeoR.ttf */; };
-		BCB550EE533A4AD8AD3A41A0 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E9F5779476646E8B4B6A546 /* AppleSDGothicNeoSB.ttf */; };
 		99FDAC1901364013B405B099 /* AppleSDGothicNeoT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1AAB081917346DC80202896 /* AppleSDGothicNeoT.ttf */; };
-		F81D10E57517437B8EEA289A /* AppleSDGothicNeoUL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 189879B54F764FDC8BDA942A /* AppleSDGothicNeoUL.ttf */; };
+		9BDFE104CA6A404184B75432 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 700570FC72EC4F3F9DC1BBB0 /* AppleSDGothicNeoR.ttf */; };
+		AC729A086B4F4E4E9CE1C1FF /* AppleSDGothicNeoL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A960BADF15E24E94AE6A440D /* AppleSDGothicNeoL.ttf */; };
+		BCB550EE533A4AD8AD3A41A0 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E9F5779476646E8B4B6A546 /* AppleSDGothicNeoSB.ttf */; };
 		C172EC7E34D644A3B65928BC /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9755B7EFC12439A89BB4044 /* BlackHanSans-Regular.ttf */; };
 		D087CB5895CE4FE0BB128611 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0572822C3B44469BA3612F97 /* NotoSansKR-Black.otf */; };
-		16078E38F6644D4CAA805BFB /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5598FF04804555A8A8377B /* NotoSansKR-Bold.otf */; };
-		127645BC523C465FAC5DC9BD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7616FDE9267041DFACE47DC8 /* NotoSansKR-Light.otf */; };
-		58D93586DFEF4B9EA7373298 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1049DC51F784F2E9CD86B4A /* NotoSansKR-Medium.otf */; };
-		1E8D771409C64DAAA955A71E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B124675A9E434DCD9BA22536 /* NotoSansKR-Regular.otf */; };
 		D16732E43E8A41959786D3E1 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 539953C225A34B739C8B3115 /* NotoSansKR-Thin.otf */; };
+		DD151762116F41C0A145A8B4 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEDC9DA13A4B3CA9C2A07E /* AppleSDGothicNeoEB.ttf */; };
+		E899ED0786634E39B2F93DEA /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AEE636AAEF943AE9C8842B4 /* AppleSDGothicNeoB.ttf */; };
+		F81D10E57517437B8EEA289A /* AppleSDGothicNeoUL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 189879B54F764FDC8BDA942A /* AppleSDGothicNeoUL.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,36 +46,36 @@
 		00E356EE1AD99517003FC87E /* NEWGEMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NEWGEMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* NEWGEMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEWGEMTests.m; sourceTree = "<group>"; };
+		0572822C3B44469BA3612F97 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansKR-Black.otf"; path = "../assets/fonts/NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* NEWGEM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEWGEM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NEWGEM/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = NEWGEM/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NEWGEM/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NEWGEM/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NEWGEM/main.m; sourceTree = "<group>"; };
+		189879B54F764FDC8BDA942A /* AppleSDGothicNeoUL.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoUL.ttf; path = ../assets/fonts/AppleSDGothicNeoUL.ttf; sourceTree = "<group>"; };
+		2F5598FF04804555A8A8377B /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansKR-Bold.otf"; path = "../assets/fonts/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		2FCB4C5A659F4C0C81CF3C6C /* AppleSDGothicNeoH.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoH.ttf; path = ../assets/fonts/AppleSDGothicNeoH.ttf; sourceTree = "<group>"; };
 		47BFA4EAA2F6586F25C2DEF4 /* Pods-NEWGEM-NEWGEMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWGEM-NEWGEMTests.release.xcconfig"; path = "Target Support Files/Pods-NEWGEM-NEWGEMTests/Pods-NEWGEM-NEWGEMTests.release.xcconfig"; sourceTree = "<group>"; };
+		4FED20D7A46F417B94062C93 /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoM.ttf; path = ../assets/fonts/AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
+		539953C225A34B739C8B3115 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansKR-Thin.otf"; path = "../assets/fonts/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		5BDCCA4247795FE5FE84F780 /* libPods-NEWGEM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEWGEM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE60BABD64CA152A60DB104 /* Pods-NEWGEM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWGEM.release.xcconfig"; path = "Target Support Files/Pods-NEWGEM/Pods-NEWGEM.release.xcconfig"; sourceTree = "<group>"; };
 		690720F0814AE4B2EDE00467 /* libPods-NEWGEM-NEWGEMTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NEWGEM-NEWGEMTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AEE636AAEF943AE9C8842B4 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoB.ttf; path = ../assets/fonts/AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
+		6DFEDC9DA13A4B3CA9C2A07E /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoEB.ttf; path = ../assets/fonts/AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
+		700570FC72EC4F3F9DC1BBB0 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoR.ttf; path = ../assets/fonts/AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
+		7616FDE9267041DFACE47DC8 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansKR-Light.otf"; path = "../assets/fonts/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = NEWGEM/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E9F5779476646E8B4B6A546 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoSB.ttf; path = ../assets/fonts/AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		A0CFF1B7086B32017F6C518C /* Pods-NEWGEM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWGEM.debug.xcconfig"; path = "Target Support Files/Pods-NEWGEM/Pods-NEWGEM.debug.xcconfig"; sourceTree = "<group>"; };
+		A960BADF15E24E94AE6A440D /* AppleSDGothicNeoL.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoL.ttf; path = ../assets/fonts/AppleSDGothicNeoL.ttf; sourceTree = "<group>"; };
+		B1049DC51F784F2E9CD86B4A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansKR-Medium.otf"; path = "../assets/fonts/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		B124675A9E434DCD9BA22536 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSansKR-Regular.otf"; path = "../assets/fonts/NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		E9755B7EFC12439A89BB4044 /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BlackHanSans-Regular.ttf"; path = "../assets/fonts/BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
 		E99BBE57790E382223A54338 /* Pods-NEWGEM-NEWGEMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWGEM-NEWGEMTests.debug.xcconfig"; path = "Target Support Files/Pods-NEWGEM-NEWGEMTests/Pods-NEWGEM-NEWGEMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		6AEE636AAEF943AE9C8842B4 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoB.ttf"; path = "../assets/fonts/AppleSDGothicNeoB.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6DFEDC9DA13A4B3CA9C2A07E /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoEB.ttf"; path = "../assets/fonts/AppleSDGothicNeoEB.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2FCB4C5A659F4C0C81CF3C6C /* AppleSDGothicNeoH.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoH.ttf"; path = "../assets/fonts/AppleSDGothicNeoH.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A960BADF15E24E94AE6A440D /* AppleSDGothicNeoL.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoL.ttf"; path = "../assets/fonts/AppleSDGothicNeoL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4FED20D7A46F417B94062C93 /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoM.ttf"; path = "../assets/fonts/AppleSDGothicNeoM.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		700570FC72EC4F3F9DC1BBB0 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoR.ttf"; path = "../assets/fonts/AppleSDGothicNeoR.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9E9F5779476646E8B4B6A546 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoSB.ttf"; path = "../assets/fonts/AppleSDGothicNeoSB.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F1AAB081917346DC80202896 /* AppleSDGothicNeoT.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoT.ttf"; path = "../assets/fonts/AppleSDGothicNeoT.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		189879B54F764FDC8BDA942A /* AppleSDGothicNeoUL.ttf */ = {isa = PBXFileReference; name = "AppleSDGothicNeoUL.ttf"; path = "../assets/fonts/AppleSDGothicNeoUL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E9755B7EFC12439A89BB4044 /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; name = "BlackHanSans-Regular.ttf"; path = "../assets/fonts/BlackHanSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0572822C3B44469BA3612F97 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Black.otf"; path = "../assets/fonts/NotoSansKR-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2F5598FF04804555A8A8377B /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Bold.otf"; path = "../assets/fonts/NotoSansKR-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7616FDE9267041DFACE47DC8 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Light.otf"; path = "../assets/fonts/NotoSansKR-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B1049DC51F784F2E9CD86B4A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Medium.otf"; path = "../assets/fonts/NotoSansKR-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B124675A9E434DCD9BA22536 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Regular.otf"; path = "../assets/fonts/NotoSansKR-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		539953C225A34B739C8B3115 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; name = "NotoSansKR-Thin.otf"; path = "../assets/fonts/NotoSansKR-Thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F1AAB081917346DC80202896 /* AppleSDGothicNeoT.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AppleSDGothicNeoT.ttf; path = ../assets/fonts/AppleSDGothicNeoT.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,20 +170,8 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ACAEED72DD02B749CC03F38D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A0CFF1B7086B32017F6C518C /* Pods-NEWGEM.debug.xcconfig */,
-				5FE60BABD64CA152A60DB104 /* Pods-NEWGEM.release.xcconfig */,
-				E99BBE57790E382223A54338 /* Pods-NEWGEM-NEWGEMTests.debug.xcconfig */,
-				47BFA4EAA2F6586F25C2DEF4 /* Pods-NEWGEM-NEWGEMTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8AD5A21418EC4484919C1A98 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				6AEE636AAEF943AE9C8842B4 /* AppleSDGothicNeoB.ttf */,
 				6DFEDC9DA13A4B3CA9C2A07E /* AppleSDGothicNeoEB.ttf */,
@@ -203,8 +191,20 @@
 				539953C225A34B739C8B3115 /* NotoSansKR-Thin.otf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
+		};
+		ACAEED72DD02B749CC03F38D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0CFF1B7086B32017F6C518C /* Pods-NEWGEM.debug.xcconfig */,
+				5FE60BABD64CA152A60DB104 /* Pods-NEWGEM.release.xcconfig */,
+				E99BBE57790E382223A54338 /* Pods-NEWGEM-NEWGEMTests.debug.xcconfig */,
+				47BFA4EAA2F6586F25C2DEF4 /* Pods-NEWGEM-NEWGEMTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
