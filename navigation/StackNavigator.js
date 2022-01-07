@@ -9,6 +9,8 @@ import LocationPicker from '../components/CategoryScreen/LocationPicker';
 import DetailsScreen from '../screens/DetailsScreen';
 import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
 import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
+import CurationsScreen from '../screens/CurationsScreen';
+import SpotsSelectScreen from '../screens/SpotsSelectScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -93,7 +95,7 @@ export default function StackNavigator() {
         name="DetailsCuration"
         component={DetailsCuration}
         options={({route}) => ({
-          title: route.params.storeName,
+          title: '큐레이션',
           // headerTransparent: true,
           headerBackTitleStyle: {color: 'transparent', fontSize: 15},
           headerTintColor: 'black',
@@ -110,6 +112,49 @@ export default function StackNavigator() {
           ),
           headerRight: () => <DetailsHeaderRight />,
           // ...TransitionPresets.ModalPresentationIOS,
+        })}
+      />
+
+      <Stack.Screen
+        name="Curations"
+        component={CurationsScreen}
+        options={({route, navigation}) => ({
+          title: '젬 큐레이션 ✨',
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="black"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerBackTitleStyle: {color: 'black', fontSize: 15},
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            color: 'black',
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="SpotSelect"
+        component={SpotsSelectScreen}
+        options={({route, navigation}) => ({
+          title: '카테고리',
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="white"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerBackTitleStyle: {color: 'white', fontSize: 15},
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            color: 'transparent',
+          },
         })}
       />
     </Stack.Navigator>
