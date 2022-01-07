@@ -6,7 +6,6 @@ import {
   View,
   TouchableOpacity,
   Dimensions,
-  Image,
   Linking,
   ActivityIndicator,
 } from 'react-native';
@@ -17,6 +16,8 @@ import Video from 'react-native-video';
 import DetailsMenu from '../components/DetailsScreen/DetailsMenu';
 
 import DetailsInfo from '../components/DetailsScreen/DetailsInfo';
+
+import FastImage from 'react-native-fast-image';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -121,14 +122,14 @@ const DetailsScreen = props => {
             }}>
             {storeData.images.map(item => {
               return (
-                <Image
+                <FastImage
                   key={item.id}
                   style={{
                     width: DEVICE_WIDTH - 30,
                     height: '100%',
                   }}
                   source={{uri: item.url}}
-                  resizeMode="cover"
+                  resizeMode={FastImage.resizeMode.cover}
                 />
               );
             })}
@@ -194,7 +195,7 @@ const DetailsScreen = props => {
                   });
                 }}>
                 <View style={styles.buttonImageContainer}>
-                  <Image
+                  <FastImage
                     source={require('../assets/images/emojis/curation.png')}
                     style={{width: '100%', height: '100%'}}
                   />
@@ -218,7 +219,7 @@ const DetailsScreen = props => {
                 });
               }}>
               <View style={styles.buttonImageContainer}>
-                <Image
+                <FastImage
                   source={require('../assets/images/SNS/INSTAGRAM.png')}
                   style={{width: '100%', height: '100%'}}
                 />
@@ -238,7 +239,7 @@ const DetailsScreen = props => {
               });
             }}>
             <View style={styles.buttonImageContainer}>
-              <Image
+              <FastImage
                 source={require('../assets/images/SNS/NAVER.png')}
                 style={{width: '100%', height: '100%'}}
               />
@@ -249,7 +250,7 @@ const DetailsScreen = props => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={infosTabHandler}>
             <View style={styles.buttonImageContainer}>
-              <Image
+              <FastImage
                 source={require('../assets/images/emojis/details.png')}
                 style={{width: 'auto', height: '100%'}}
               />
@@ -277,7 +278,7 @@ const DetailsScreen = props => {
       <View style={styles.logoSection}>
         <Text style={styles.logoText}>Powered by</Text>
         <View style={styles.logoContainer}>
-          <Image
+          <FastImage
             source={require('../assets/images/BI/LogoGrey.png')}
             style={{width: '100%', height: '100%'}}
           />
