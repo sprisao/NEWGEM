@@ -6,6 +6,9 @@ import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
 import CategoryScreen from '../screens/CategoryScreen';
 import LocationPicker from '../components/CategoryScreen/LocationPicker';
+import DetailsScreen from '../screens/DetailsScreen';
+import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
+import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +64,52 @@ export default function StackNavigator() {
           headerRight: () => (
             <LocationPicker navigation={navigation} route={route} />
           ),
+        })}
+      />
+
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={({route}) => ({
+          title: route.params.storeName,
+          // headerTransparent: true,
+          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
+          headerTintColor: 'black',
+          // headerTitleStyle: {
+          //   color: 'transparent',
+          // },
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="black"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerRight: () => <DetailsHeaderRight />,
+        })}
+      />
+      <Stack.Screen
+        name="DetailsCuration"
+        component={DetailsCuration}
+        options={({route}) => ({
+          title: route.params.storeName,
+          // headerTransparent: true,
+          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
+          headerTintColor: 'black',
+          // headerTitleStyle: {
+          //   color: 'transparent',
+          // },
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="black"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerRight: () => <DetailsHeaderRight />,
+          // ...TransitionPresets.ModalPresentationIOS,
         })}
       />
     </Stack.Navigator>
