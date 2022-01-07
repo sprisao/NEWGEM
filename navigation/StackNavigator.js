@@ -1,5 +1,6 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
+import {TransitionPresets} from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -13,13 +14,13 @@ import CurationsScreen from '../screens/CurationsScreen';
 import SpotsSelectScreen from '../screens/SpotsSelectScreen';
 import SightSeeingScreen from '../screens/SightSeeingScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function StackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="홈"
         component={HomeScreen}
         options={{
           headerShown: false,
@@ -59,7 +60,7 @@ export default function StackNavigator() {
               style={{marginLeft: 10}}
             />
           ),
-          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
+          headerBackTitleStyle: {color: 'black', fontSize: 15},
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -112,7 +113,7 @@ export default function StackNavigator() {
             />
           ),
           headerRight: () => <DetailsHeaderRight />,
-          // ...TransitionPresets.ModalPresentationIOS,
+          ...TransitionPresets.ModalPresentationIOS,
         })}
       />
 
@@ -134,6 +135,9 @@ export default function StackNavigator() {
           headerTitleStyle: {
             color: 'black',
           },
+          headerRight: () => (
+            <LocationPicker navigation={navigation} route={route} />
+          ),
         })}
       />
 

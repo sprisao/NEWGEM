@@ -21,6 +21,7 @@ const LocationPicker = props => {
 
   useEffect(() => {
     props.navigation.setParams({location: selectedLocation});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLocation]);
 
   return (
@@ -63,6 +64,8 @@ export default LocationPicker;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    paddingHorizontal: 13,
     paddingBottom: 2,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -73,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f6f6f6',
-    minWidth: 85,
+    width: 110,
     paddingHorizontal: 5,
     paddingVertical: 8,
     borderRadius: 8,
