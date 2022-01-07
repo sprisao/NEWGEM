@@ -4,6 +4,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
+import CategoryScreen from '../screens/CategoryScreen';
+import LocationPicker from '../components/CategoryScreen/LocationPicker';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +24,7 @@ export default function StackNavigator() {
         name="SecondSelect"
         component={SecondSelectScreen}
         options={({route}) => ({
-          title: route.params.categoryName,
+          title: '카테고리',
           headerBackImage: () => (
             <Ionicons
               name="ios-chevron-back"
@@ -36,6 +38,29 @@ export default function StackNavigator() {
           headerTitleStyle: {
             color: 'black',
           },
+        })}
+      />
+      <Stack.Screen
+        name="CategoryScreen"
+        component={CategoryScreen}
+        options={({route, navigation}) => ({
+          title: route.params.categoryName,
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="black"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            color: 'black',
+          },
+          headerRight: () => (
+            <LocationPicker navigation={navigation} route={route} />
+          ),
         })}
       />
     </Stack.Navigator>
