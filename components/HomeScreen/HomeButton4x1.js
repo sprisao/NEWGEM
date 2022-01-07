@@ -4,9 +4,10 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
   Dimensions,
 } from 'react-native';
+
+import FastImage from 'react-native-fast-image';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -15,9 +16,9 @@ const HomeButton4x1 = props => {
     <TouchableOpacity style={styles.homeButton} onPress={props.onSelect}>
       <Text style={styles.homeBT_2_Header}>{props.Category}</Text>
       <View style={styles.homeBT_2_EmojiContainer}>
-        <Image
+        <FastImage
           style={styles.homeBT_2_emoji}
-          resizeMode="cover"
+          resizeMode={FastImage.resizeMode.cover}
           source={props.imageUrl}
         />
       </View>

@@ -5,11 +5,11 @@ import {
   View,
   TouchableOpacity,
   Switch,
-  Image,
   Modal,
   Pressable,
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import FastImage from 'react-native-fast-image';
 
 const HomeHeader = props => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -28,7 +28,7 @@ const HomeHeader = props => {
       <View style={styles.wrapper}>
         <TouchableOpacity style={styles.leftBox} onPress={props.onTab}>
           <View style={styles.logoContainer}>
-            <Image
+            <FastImage
               source={require('../../assets/images/BI/logo.png')}
               style={{width: '100%', height: '100%'}}
             />

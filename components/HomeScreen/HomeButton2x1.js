@@ -4,9 +4,11 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
   Dimensions,
 } from 'react-native';
+
+import FastImage from 'react-native-fast-image';
+
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -16,9 +18,9 @@ const HomeButton2x1 = props => {
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
       <View style={styles.imageContainer}>
-        <Image
+        <FastImage
           style={styles.homeBT_1_emoji}
-          resizeMode="cover"
+          resizeMode={FastImage.resizeMode.cover}
           source={props.imageUrl}
         />
       </View>

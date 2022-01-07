@@ -4,10 +4,10 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
   Dimensions,
 } from 'react-native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import FastImage from 'react-native-fast-image';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -15,9 +15,9 @@ const CurationBT = props => {
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
       <View style={styles.imageContainer}>
-        <Image
+        <FastImage
           style={styles.homeBT_1_emoji}
-          resizeMode="cover"
+          resizeMode={FastImage.resizeMode.cover}
           source={props.imageUrl}
         />
       </View>
