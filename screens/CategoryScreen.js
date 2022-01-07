@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useMemo} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,6 +6,7 @@ import {
   Dimensions,
   FlatList,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 
 import GridWrapper from '../components/CategoryScreen/GridWrapper';
@@ -75,8 +76,9 @@ const CategoryScreen = props => {
 
   const scrollHandler = e => {
     const offset = e.nativeEvent.contentOffset.x;
-    const pageIndex = offset / deviceWidth;
-    const selectedIndex = Math.floor(pageIndex);
+    const pageIndex = Math.floor(offset / deviceWidth);
+    const selectedIndex = Platform.OS === 'ios' ? pageIndex : pageIndex + 1;
+
     setSelectedIndex(selectedIndex);
     if (offset > 0) {
       tabsRef.current.scrollToIndex({
@@ -88,6 +90,7 @@ const CategoryScreen = props => {
   };
 
   // 탭 렌더링
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const renderTabs = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -110,6 +113,7 @@ const CategoryScreen = props => {
   };
 
   // 각 2차카테고리별 페이지 렌더링
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const renderPage = ({item, index}) => {
     return (
       <View style={styles.page}>
@@ -120,6 +124,8 @@ const CategoryScreen = props => {
       </View>
     );
   };
+  const memoizedPage = useMemo(() => renderPage, [renderPage]);
+  const memoizedTabs = useMemo(() => renderTabs, [renderTabs]);
 
   return (
     <View style={styles.screen}>
@@ -128,7 +134,7 @@ const CategoryScreen = props => {
           ref={tabsRef}
           data={dataSet}
           keyExtractor={item => item.category}
-          renderItem={renderTabs}
+          renderItem={memoizedTabs}
           horizontal
           showsHorizontalScrollIndicator={false}
           getItemLayout={(data, index) => ({
@@ -144,7 +150,7 @@ const CategoryScreen = props => {
         keyExtractor={item => {
           return item.category;
         }}
-        renderItem={renderPage}
+        renderItem={memoizedPage}
         bounces={false}
         onScroll={scrollHandler}
         horizontal
