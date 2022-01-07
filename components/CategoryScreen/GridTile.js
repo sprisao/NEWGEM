@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
+import FastImage from 'react-native-fast-image';
+
 import Feather from 'react-native-vector-icons/Feather';
 
 const GridTile = props => {
@@ -45,7 +47,7 @@ const GridTile = props => {
         }}
         onPress={props.onSecondSelect}>
         <View style={styles.tileWrapper}>
-          <Image
+          <FastImage
             style={styles.image}
             resizeMode="cover"
             source={{uri: props.image}}
