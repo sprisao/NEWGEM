@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     width: 30,
   },
   paragraph: {
-    fontFamily: 'AppleSDGothicNeoUL',
+    fontFamily: 'AppleSDGothicNeo-UltraLight',
     lineHeight: DEVICE_WIDTH > 400 ? 13 : 11,
     fontSize: DEVICE_WIDTH > 400 ? 13 : 11,
     textAlign: 'left',

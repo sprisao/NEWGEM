@@ -155,17 +155,17 @@ const styles = StyleSheet.create({
   },
 
   headerText: {
-    fontFamily: 'AppleSDGothicNeoUL',
+    fontFamily: 'AppleSDGothicNeo-UltraLight',
     fontSize: 12,
     marginLeft: 10,
   },
   locationText: {
-    fontFamily: 'AppleSDGothicNeoUL',
+    fontFamily: 'AppleSDGothicNeo-UltraLight',
     fontSize: 12,
     marginBottom: 3,
   },
   travelText: {
-    fontFamily: 'AppleSDGothicNeoUL',
+    fontFamily: 'AppleSDGothicNeo-UltraLight',
     fontSize: 11,
     textAlign: 'center',
   },

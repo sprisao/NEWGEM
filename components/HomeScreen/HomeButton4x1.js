@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   homeBT_2_Header: {
     fontSize: DEVICE_WIDTH > 400 ? 17 : 16,
-    fontFamily: 'AppleSDGothicNeoB',
+    fontFamily: 'AppleSDGothicNeo-Bold',
     letterSpacing: -0.8,
     includeFontPadding: false,
     color: '#333333',

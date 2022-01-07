@@ -295,9 +295,9 @@ const HomeScreen = props => {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                Linking.openURL(`instagram://user?username=gemchelin`).catch(
+                Linking.openURL('instagram://user?username=gemchelin').catch(
                   () => {
-                    Linking.openURL(`https://www.instagram.com/gemchelin`);
+                    Linking.openURL('https://www.instagram.com/gemchelin');
                   },
                 );
               }}>
@@ -314,9 +314,9 @@ const HomeScreen = props => {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                Linking.openURL(`instagram://user?username=brave.choe`).catch(
+                Linking.openURL('instagram://user?username=brave.choe').catch(
                   () => {
-                    Linking.openURL(`https://www.instagram.com/gemchelin`);
+                    Linking.openURL('https://www.instagram.com/gemchelin');
                   },
                 );
               }}>
@@ -440,7 +440,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: {
-    fontFamily: 'AppleSDGothicNeoSB',
+    fontFamily: 'AppleSDGothicNeo-SemiBold',
     fontSize: 15,
     letterSpacing: -0.25,
   },
@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
-  logoText: {fontFamily: 'AppleSDGothicNeoSB', color: '#666'},
+  logoText: {fontFamily: 'AppleSDGothicNeo-SemiBold', color: '#666'},
   logoContainer: {
     width: 25,
     height: 27,

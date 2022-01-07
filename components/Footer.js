@@ -76,25 +76,25 @@ const styles = StyleSheet.create({
   },
   CompanyNameText: {
     includeFontPadding: false,
-    fontFamily: 'AppleSDGothicNeoB',
+    fontFamily: 'AppleSDGothicNeo-Bold',
     fontSize: 16,
     letterSpacing: -0.5,
   },
   CompanyDetailsText: {
-    fontFamily: 'AppleSDGothicNeoR',
+    fontFamily: 'AppleSDGothicNeo-Regular',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
   },
   CopyrightText: {
-    fontFamily: 'AppleSDGothicNeoR',
+    fontFamily: 'AppleSDGothicNeo-Regular',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
   },
 
   NoticeText: {
-    fontFamily: 'AppleSDGothicNeoR',
+    fontFamily: 'AppleSDGothicNeo-Regular',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
 
   policyText: {
-    fontFamily: 'AppleSDGothicNeoSB',
+    fontFamily: 'AppleSDGothicNeo-Bold',
     letterSpacing: -0.35,
     fontSize: 12,
     includeFontPadding: false,
