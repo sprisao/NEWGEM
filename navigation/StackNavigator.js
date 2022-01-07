@@ -11,6 +11,7 @@ import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
 import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
 import CurationsScreen from '../screens/CurationsScreen';
 import SpotsSelectScreen from '../screens/SpotsSelectScreen';
+import SightSeeingScreen from '../screens/SightSeeingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -154,6 +155,28 @@ export default function StackNavigator() {
           headerTintColor: 'white',
           headerTitleStyle: {
             color: 'transparent',
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="Spots"
+        component={SightSeeingScreen}
+        options={({route, navigation}) => ({
+          title: '가볼만한 곳',
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="black"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerBackTitleStyle: {color: 'black', fontSize: 15},
+          // headerTransparent: true,
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            color: 'black',
           },
         })}
       />
