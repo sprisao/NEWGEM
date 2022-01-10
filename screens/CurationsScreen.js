@@ -7,6 +7,7 @@ import {
   FlatList,
   Dimensions,
   Image,
+  Platform,
 } from 'react-native';
 
 import {useGlobalContext} from '../context';
@@ -104,19 +105,28 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   copy: {
-    fontFamily: 'AppleSDGothicNeo-Light',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Light'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
     fontSize: DEVICE_WIDTH > 400 ? 14 : DEVICE_WIDTH > 375 ? 13 : 13,
     letterSpacing: -0.5,
     color: 'white',
   },
   storeName: {
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Bold'},
+      android: {fontFamily: 'AppleSDGothicNeoB'},
+    }),
     fontSize: DEVICE_WIDTH > 400 ? 25 : DEVICE_WIDTH > 375 ? 22 : 22,
     letterSpacing: -0.5,
     color: 'white',
   },
   address: {
-    fontFamily: 'AppleSDGothicNeo-Light',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Light'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
     fontSize: 13,
     letterSpacing: -0.5,
     color: 'white',

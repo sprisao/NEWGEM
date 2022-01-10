@@ -10,6 +10,7 @@ import {
   Linking,
   Image,
   Share,
+  Platform,
 } from 'react-native';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
@@ -327,7 +328,7 @@ const HomeScreen = props => {
                 />
               </View>
               <Text style={styles.buttonText}>
-                개발자 인스타 (팔로우 환영!🤗)
+                개발자 인스타 (팔로우 환영🤗)
               </Text>
             </TouchableOpacity>
           </View>
@@ -440,7 +441,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: {
-    fontFamily: 'AppleSDGothicNeo-SemiBold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
+    color: 'black',
     fontSize: 15,
     letterSpacing: -0.25,
   },

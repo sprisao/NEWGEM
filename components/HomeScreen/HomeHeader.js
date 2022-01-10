@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Switch,
   Modal,
+  Platform,
   Pressable,
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -54,7 +55,11 @@ const HomeHeader = props => {
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={toggleSwitch}
                 value={isEnabled}
-                style={{transform: [{scaleX: 0.6}, {scaleY: 0.6}]}}
+                style={
+                  Platform.OS === 'ios'
+                    ? {transform: [{scaleX: 0.6}, {scaleY: 0.6}]}
+                    : {transform: [{scaleX: 0.95}, {scaleY: 0.95}]}
+                }
               />
             </View>
           </View>
@@ -155,17 +160,27 @@ const styles = StyleSheet.create({
   },
 
   headerText: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
     fontSize: 12,
     marginLeft: 10,
+    color: 'black',
   },
   locationText: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
     fontSize: 12,
     marginBottom: 3,
   },
   travelText: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
     fontSize: 11,
     textAlign: 'center',
   },

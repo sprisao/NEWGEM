@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 import {useGlobalContext} from '../../context';
@@ -87,7 +87,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: {
-    fontFamily: 'AppleSDGothicNeo-Light',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
     letterSpacing: -0.5,
     fontSize: 13,
   },
@@ -107,7 +111,11 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   listText: {
-    fontFamily: 'AppleSDGothicNeo-Light',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
     letterSpacing: -0.5,
     fontSize: 13,
   },

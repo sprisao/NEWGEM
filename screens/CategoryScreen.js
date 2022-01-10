@@ -191,7 +191,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 1,
   },
   tabText: {
-    fontFamily: 'AppleSDGothicNeo-Light',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Light'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
+    color: 'black',
     letterSpacing: -0.25,
     fontSize: 13,
   },

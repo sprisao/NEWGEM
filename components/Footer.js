@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableWithoutFeedback,
+  Platform,
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 const Footer = () => {
@@ -61,6 +67,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#f3f3f3',
     marginTop: 20,
+    marginBottom: 20,
   },
   footer_Wrapper: {
     height: 190,
@@ -76,25 +83,41 @@ const styles = StyleSheet.create({
   },
   CompanyNameText: {
     includeFontPadding: false,
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
+    color: 'black',
     fontSize: 16,
     letterSpacing: -0.5,
   },
   CompanyDetailsText: {
-    fontFamily: 'AppleSDGothicNeo-Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
   },
   CopyrightText: {
-    fontFamily: 'AppleSDGothicNeo-Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
   },
 
   NoticeText: {
-    fontFamily: 'AppleSDGothicNeo-Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
@@ -105,7 +128,11 @@ const styles = StyleSheet.create({
   },
 
   policyText: {
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
+    color: 'black',
     letterSpacing: -0.35,
     fontSize: 12,
     includeFontPadding: false,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
 
 import FastImage from 'react-native-fast-image';
 
@@ -101,15 +101,25 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   location: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
   },
   name: {
-    fontFamily: 'AppleSDGothicNeo-Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
+
+    color: 'black',
     letterSpacing: -0.35,
     fontSize: 20,
   },
   medalContainer: {marginVertical: 2},
   medals: {
+    color: 'black',
     fontSize: 14,
     letterSpacing: -5,
   },
@@ -122,6 +132,7 @@ const styles = StyleSheet.create({
   businessHour: {
     fontFamily: 'AppleSDGothicNeo-Light',
     letterSpacing: -0.35,
+    color: 'black',
     marginLeft: 2,
   },
 });

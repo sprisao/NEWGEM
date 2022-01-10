@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
 
 const SecondSelectButton = props => {
   return (
@@ -37,7 +37,10 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   buttonText: {
-    fontFamily: 'AppleSDGothicNeo-Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
     fontSize: 14,
     color: 'black',
   },

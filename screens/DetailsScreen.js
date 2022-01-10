@@ -8,6 +8,7 @@ import {
   Dimensions,
   Linking,
   ActivityIndicator,
+  Platform,
 } from 'react-native';
 
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -106,34 +107,6 @@ const DetailsScreen = props => {
           </View>
         </View>
         <View style={styles.imagesContainer}>
-          <ScrollView
-            ref={imageBoxRef}
-            horizontal
-            onMomentumScrollEnd={scrollEnded}
-            showsHorizontalScrollIndicator={false}
-            pagingEnabled
-            style={{
-              borderRadius: 10,
-              shadowColor: '#000',
-              shadowOffset: {width: 0, height: 3},
-              shadowOpacity: 0.1,
-              shadowRadius: 10,
-              elevation: 5,
-            }}>
-            {storeData.images.map(item => {
-              return (
-                <FastImage
-                  key={item.id}
-                  style={{
-                    width: DEVICE_WIDTH - 30,
-                    height: '100%',
-                  }}
-                  source={{uri: item.url}}
-                  resizeMode={FastImage.resizeMode.cover}
-                />
-              );
-            })}
-          </ScrollView>
           <View style={styles.circleDiv}>
             {storeData.images.map((item, i) => (
               <View
@@ -144,6 +117,28 @@ const DetailsScreen = props => {
                 ]}
               />
             ))}
+          </View>
+          <View style={styles.imageWrapper}>
+            <ScrollView
+              ref={imageBoxRef}
+              horizontal
+              onMomentumScrollEnd={scrollEnded}
+              showsHorizontalScrollIndicator={false}
+              pagingEnabled>
+              {storeData.images.map(item => {
+                return (
+                  <FastImage
+                    key={item.id}
+                    style={{
+                      width: DEVICE_WIDTH - 30,
+                      height: '100%',
+                    }}
+                    source={{uri: item.url}}
+                    resizeMode={FastImage.resizeMode.cover}
+                  />
+                );
+              })}
+            </ScrollView>
           </View>
         </View>
         {storeData.isMenu ? <DetailsMenu storeData={storeData} /> : null}
@@ -337,14 +332,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   storeDesc: {
-    fontFamily: 'AppleSDGothicNeo-Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
     fontSize: DEVICE_WIDTH > 400 ? 16 : DEVICE_WIDTH > 375 ? 14.5 : 13.5,
     letterSpacing: -1,
     color: 'black',
   },
 
   storeName: {
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Bold', marginTop: 5},
+      android: {fontFamily: 'AppleSDGothicNeoB'},
+    }),
     fontSize: 32,
     letterSpacing: -1.5,
     color: 'black',
@@ -373,6 +374,15 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     alignItems: 'center',
   },
+  imageWrapper: {
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+    overflow: 'hidden',
+  },
   buttonContainer: {
     width: '100%',
     paddingHorizontal: 15,
@@ -393,7 +403,10 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: {
-    fontFamily: 'AppleSDGothicNeo-SemiBold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-SemiBold'},
+      android: {fontFamily: 'AppleSDGothicNeoB'},
+    }),
     color: 'black',
     fontSize: 16,
     letterSpacing: -0.25,
@@ -403,11 +416,13 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     bottom: 10,
-    height: 10,
+    height: 12,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 4,
+    elevation: 6,
   },
   whiteCircle: {
     width: 5,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Platform} from 'react-native';
 import {useGlobalContext} from '../../context';
 
 import FastImage from 'react-native-fast-image';
@@ -26,7 +26,9 @@ const DetailsMenu = ({storeData}) => {
                   <View style={styles.articleContainer}>
                     <View style={styles.nameContaienr}>
                       <Text style={styles.menuName}>{item.menu}</Text>
-                      {item.engMenu ? <Text>{item.engMenu}</Text> : null}
+                      {item.engMenu ? (
+                        <Text style={styles.engMenu}>{item.engMenu}</Text>
+                      ) : null}
                     </View>
                     <View style={styles.descContainer}>
                       <Text style={styles.menuDesc}>{item.menuDesc}</Text>
@@ -50,7 +52,10 @@ const styles = StyleSheet.create({
   menuContainer: {},
   menuWrapper: {flex: 1, width: '100%', paddingHorizontal: 15},
   menuHeader: {
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Bold'},
+      android: {fontFamily: 'AppleSDGothicNeoEB'},
+    }),
     color: 'black',
     fontSize: 22,
     marginVertical: 7,
@@ -80,15 +85,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   menuName: {
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Bold'},
+      android: {fontFamily: 'AppleSDGothicNeoEB'},
+    }),
     color: 'black',
     fontSize: 18,
   },
+  engMenu: {
+    ...Platform.select({
+      ios: {color: '#888', fontFamily: 'AppleSDGothicNeo-Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
+  },
   menuDesc: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
     color: 'black',
     fontSize: 13,
     letterSpacing: -0.35,
     marginVertical: 10,
+  },
+  menuPrice: {
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoL', color: 'black'},
+    }),
   },
 });

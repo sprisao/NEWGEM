@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {TransitionPresets} from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -60,11 +61,27 @@ export default function StackNavigator() {
               style={{marginLeft: 10}}
             />
           ),
-          headerBackTitleStyle: {color: 'black', fontSize: 15},
-          headerTintColor: 'black',
-          headerTitleStyle: {
+          headerBackTitleStyle: {
             color: 'black',
+            fontSize: 15,
+            fontFamily: 'AppleSDGothicNeo-UltraLight',
           },
+          ...Platform.select({
+            ios: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeo-Bold',
+              },
+            },
+            android: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeoB',
+              },
+            },
+          }),
+
+          headerTintColor: 'black',
           headerRight: () => (
             <LocationPicker navigation={navigation} route={route} />
           ),
@@ -79,9 +96,20 @@ export default function StackNavigator() {
           // headerTransparent: true,
           headerBackTitleStyle: {color: 'transparent', fontSize: 15},
           headerTintColor: 'black',
-          // headerTitleStyle: {
-          //   color: 'transparent',
-          // },
+          ...Platform.select({
+            ios: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeo-Bold',
+              },
+            },
+            android: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeoB',
+              },
+            },
+          }),
           headerBackImage: () => (
             <Ionicons
               name="ios-chevron-back"
@@ -132,9 +160,20 @@ export default function StackNavigator() {
           ),
           headerBackTitleStyle: {color: 'black', fontSize: 15},
           headerTintColor: 'black',
-          headerTitleStyle: {
-            color: 'black',
-          },
+          ...Platform.select({
+            ios: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeo-Bold',
+              },
+            },
+            android: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeoB',
+              },
+            },
+          }),
           headerRight: () => (
             <LocationPicker navigation={navigation} route={route} />
           ),
@@ -150,16 +189,17 @@ export default function StackNavigator() {
             <Ionicons
               name="ios-chevron-back"
               size={20}
-              color="white"
+              // color="white"
               style={{marginLeft: 10}}
             />
           ),
-          headerBackTitleStyle: {color: 'white', fontSize: 15},
-          headerTransparent: true,
-          headerTintColor: 'white',
-          headerTitleStyle: {
-            color: 'transparent',
-          },
+          headerBackTitleStyle: {color: 'white'},
+          // headerTransparent: true,
+
+          // headerTintColor: 'white',
+          // headerTitleStyle: {
+          // color: 'transparent',
+          // },
         })}
       />
 

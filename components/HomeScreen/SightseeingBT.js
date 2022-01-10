@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   Dimensions,
+  Platform,
 } from 'react-native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import FastImage from 'react-native-fast-image';
@@ -53,7 +54,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-end',
     width: '48.5%',
-    height: DEVICE_HEIGHT * 0.095,
+    ...Platform.select({
+      ios: {height: DEVICE_HEIGHT * 0.095},
+      android: {height: DEVICE_HEIGHT * 0.1},
+    }),
   },
   imageContainer: {
     position: 'absolute',
@@ -89,7 +93,10 @@ const styles = StyleSheet.create({
     width: 30,
   },
   paragraph: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
     lineHeight: DEVICE_WIDTH > 400 ? 13 : 11,
     fontSize: DEVICE_WIDTH > 400 ? 13 : 11,
     textAlign: 'left',

@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   Dimensions,
+  Platform,
 } from 'react-native';
 
 import FastImage from 'react-native-fast-image';
@@ -18,11 +19,7 @@ const HomeButton2x1 = props => {
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
       <View style={styles.imageContainer}>
-        <FastImage
-          style={styles.homeBT_1_emoji}
-          resizeMode={FastImage.resizeMode.cover}
-          source={props.imageUrl}
-        />
+        <FastImage style={styles.homeBT_1_emoji} source={props.imageUrl} />
       </View>
       <View style={styles.articleContainer}>
         <View sryle={styles.pgContainer}>
@@ -57,11 +54,21 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     width: '48.5%',
-    height: DEVICE_HEIGHT * 0.22,
+
+    ...Platform.select({
+      ios: {height: DEVICE_HEIGHT * 0.22},
+      android: {height: DEVICE_HEIGHT * 0.26},
+    }),
   },
   imageContainer: {
-    width: DEVICE_WIDTH * 0.22,
-    height: DEVICE_HEIGHT * 0.1,
+    ...Platform.select({
+      ios: {width: DEVICE_WIDTH * 0.22},
+      android: {width: DEVICE_WIDTH * 0.22},
+    }),
+    ...Platform.select({
+      ios: {height: DEVICE_HEIGHT * 0.1},
+      android: {height: DEVICE_HEIGHT * 0.12},
+    }),
     shadowColor: '#000',
     shadowOffset: {width: 2, height: 3},
     shadowOpacity: 0.15,
@@ -91,11 +98,14 @@ const styles = StyleSheet.create({
     width: 30,
   },
   paragraph: {
-    fontFamily: 'AppleSDGothicNeo-UltraLight',
     lineHeight: 15.5,
     fontSize: 13,
     marginBottom: 5,
     textAlign: 'right',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
   },
   homeBT_1_emoji: {
     width: '100%',

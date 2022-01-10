@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  Platform,
 } from 'react-native';
 import {useGlobalContext} from '../context';
 
@@ -14,7 +15,7 @@ const SpotsSelectScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Image
           source={require('../assets/images/illustrations/wonju.jpg')}
           style={{
@@ -24,7 +25,7 @@ const SpotsSelectScreen = props => {
             borderBottomRightRadius: 5,
           }}
         />
-      </View>
+      </View> */}
       <ScrollView
         contentInsetAdjustmentBehavior="always"
         contentInset={{top: 0}}
@@ -130,7 +131,10 @@ const styles = StyleSheet.create({
   itemText: {
     textAlign: 'right',
     color: 'white',
-    fontFamily: 'AppleSDGothicNeo-Bold',
+    ...Platform.select({
+      ios: {fontFamily: 'AppleSDGothicNeo-Bold'},
+      android: {fontFamily: 'AppleSDGothicNeoB'},
+    }),
     fontSize: 24,
     letterSpacing: -0.5,
   },
