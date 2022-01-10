@@ -8,28 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* NEWGEMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NEWGEMTests.m */; };
-		127645BC523C465FAC5DC9BD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7616FDE9267041DFACE47DC8 /* NotoSansKR-Light.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		16078E38F6644D4CAA805BFB /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F5598FF04804555A8A8377B /* NotoSansKR-Bold.otf */; };
-		1E8D771409C64DAAA955A71E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B124675A9E434DCD9BA22536 /* NotoSansKR-Regular.otf */; };
-		2E2794A5B02F447894B8B266 /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FED20D7A46F417B94062C93 /* AppleSDGothicNeoM.ttf */; };
 		48630AAE0EF9A3BAF1F2D3B9 /* libPods-NEWGEM-NEWGEMTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690720F0814AE4B2EDE00467 /* libPods-NEWGEM-NEWGEMTests.a */; };
-		58D93586DFEF4B9EA7373298 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1049DC51F784F2E9CD86B4A /* NotoSansKR-Medium.otf */; };
 		81691C3FFA3BDE9BBFAAC8D8 /* libPods-NEWGEM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDCCA4247795FE5FE84F780 /* libPods-NEWGEM.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		968B72F6EC09417E9F1B08D6 /* AppleSDGothicNeoH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FCB4C5A659F4C0C81CF3C6C /* AppleSDGothicNeoH.ttf */; };
-		99FDAC1901364013B405B099 /* AppleSDGothicNeoT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1AAB081917346DC80202896 /* AppleSDGothicNeoT.ttf */; };
-		9BDFE104CA6A404184B75432 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 700570FC72EC4F3F9DC1BBB0 /* AppleSDGothicNeoR.ttf */; };
-		AC729A086B4F4E4E9CE1C1FF /* AppleSDGothicNeoL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A960BADF15E24E94AE6A440D /* AppleSDGothicNeoL.ttf */; };
-		BCB550EE533A4AD8AD3A41A0 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E9F5779476646E8B4B6A546 /* AppleSDGothicNeoSB.ttf */; };
 		C172EC7E34D644A3B65928BC /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9755B7EFC12439A89BB4044 /* BlackHanSans-Regular.ttf */; };
-		D087CB5895CE4FE0BB128611 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0572822C3B44469BA3612F97 /* NotoSansKR-Black.otf */; };
-		D16732E43E8A41959786D3E1 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 539953C225A34B739C8B3115 /* NotoSansKR-Thin.otf */; };
-		DD151762116F41C0A145A8B4 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEDC9DA13A4B3CA9C2A07E /* AppleSDGothicNeoEB.ttf */; };
-		E899ED0786634E39B2F93DEA /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AEE636AAEF943AE9C8842B4 /* AppleSDGothicNeoB.ttf */; };
-		F81D10E57517437B8EEA289A /* AppleSDGothicNeoUL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 189879B54F764FDC8BDA942A /* AppleSDGothicNeoUL.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,7 +282,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -341,22 +326,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				E899ED0786634E39B2F93DEA /* AppleSDGothicNeoB.ttf in Resources */,
-				DD151762116F41C0A145A8B4 /* AppleSDGothicNeoEB.ttf in Resources */,
-				968B72F6EC09417E9F1B08D6 /* AppleSDGothicNeoH.ttf in Resources */,
-				AC729A086B4F4E4E9CE1C1FF /* AppleSDGothicNeoL.ttf in Resources */,
-				2E2794A5B02F447894B8B266 /* AppleSDGothicNeoM.ttf in Resources */,
-				9BDFE104CA6A404184B75432 /* AppleSDGothicNeoR.ttf in Resources */,
-				BCB550EE533A4AD8AD3A41A0 /* AppleSDGothicNeoSB.ttf in Resources */,
-				99FDAC1901364013B405B099 /* AppleSDGothicNeoT.ttf in Resources */,
-				F81D10E57517437B8EEA289A /* AppleSDGothicNeoUL.ttf in Resources */,
 				C172EC7E34D644A3B65928BC /* BlackHanSans-Regular.ttf in Resources */,
-				D087CB5895CE4FE0BB128611 /* NotoSansKR-Black.otf in Resources */,
-				16078E38F6644D4CAA805BFB /* NotoSansKR-Bold.otf in Resources */,
-				127645BC523C465FAC5DC9BD /* NotoSansKR-Light.otf in Resources */,
-				58D93586DFEF4B9EA7373298 /* NotoSansKR-Medium.otf in Resources */,
-				1E8D771409C64DAAA955A71E /* NotoSansKR-Regular.otf in Resources */,
-				D16732E43E8A41959786D3E1 /* NotoSansKR-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,13 +513,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E99BBE57790E382223A54338 /* Pods-NEWGEM-NEWGEMTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = NEWGEMTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,10 +541,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47BFA4EAA2F6586F25C2DEF4 /* Pods-NEWGEM-NEWGEMTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = NEWGEMTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,19 +568,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.5.5;
+				DEVELOPMENT_TEAM = 4YRUVJF5KF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = NEWGEM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.5.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brucecompany.gem;
 				PRODUCT_NAME = NEWGEM;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -622,18 +596,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.5.5;
+				DEVELOPMENT_TEAM = 4YRUVJF5KF;
 				INFOPLIST_FILE = NEWGEM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.5.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brucecompany.gem;
 				PRODUCT_NAME = NEWGEM;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -689,7 +665,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -703,6 +679,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -739,6 +716,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -748,7 +726,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -760,7 +738,9 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
