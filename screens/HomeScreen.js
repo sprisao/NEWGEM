@@ -37,7 +37,7 @@ const HomeScreen = props => {
     scrollRef.current.scrollTo({x: 0, y: 0, animated: true});
   };
 
-  const link = 'https://https://linktr.ee/gemchelin';
+  const link = 'https://linktr.ee/gemchelin';
 
   const onShare = async () => {
     try {
