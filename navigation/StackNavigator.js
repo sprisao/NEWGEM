@@ -118,7 +118,7 @@ export default function StackNavigator() {
               style={{marginLeft: 10}}
             />
           ),
-          headerRight: () => <DetailsHeaderRight />,
+          // headerRight: () => <DetailsHeaderRight />,
         })}
       />
       <Stack.Screen

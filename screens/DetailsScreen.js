@@ -9,12 +9,15 @@ import {
   Linking,
   ActivityIndicator,
   Platform,
+  Modal,
+  Pressable,
 } from 'react-native';
 
 import Entypo from 'react-native-vector-icons/Entypo';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Video from 'react-native-video';
 import DetailsMenu from '../components/DetailsScreen/DetailsMenu';
+import HeaderRight from '../components/DetailsScreen/HeaderRight';
 
 import DetailsInfo from '../components/DetailsScreen/DetailsInfo';
 
@@ -23,10 +26,22 @@ import FastImage from 'react-native-fast-image';
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const DetailsScreen = props => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [isPreloading, setIsPreloading] = useState(true);
   const [isDetails, setIsDetails] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const storeData = props.route.params.storeDetails;
+  const navigation = props.navigation;
+
+  const markHandler = () => {
+    setModalVisible(true);
+  };
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <HeaderRight onMarkPress={() => markHandler()} />,
+    });
+  }, [navigation]);
 
   let preRank;
   if (storeData.preRating > 8) {
@@ -279,6 +294,24 @@ const DetailsScreen = props => {
           />
         </View>
       </View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>업데이트 예정입니다!</Text>
+            <Pressable
+              style={[styles.modalButton, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>확인</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
 };
@@ -465,5 +498,49 @@ const styles = StyleSheet.create({
     height: 27,
     marginLeft: 5,
     padding: 3,
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalButton: {
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    width: 80,
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    fontSize: 15,
+    textAlign: 'center',
   },
 });

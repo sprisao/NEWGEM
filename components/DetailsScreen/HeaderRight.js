@@ -43,7 +43,9 @@ const HeaderRight = props => {
         }}>
         <Ionicons name="share-outline" size={26} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.bookmarkBTContainer} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.bookmarkBTContainer}
+        onPress={props.onMarkPress}>
         <Ionicons name="bookmark-outline" size={26} color="black" />
       </TouchableOpacity>
     </View>
