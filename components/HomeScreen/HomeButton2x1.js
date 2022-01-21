@@ -22,7 +22,7 @@ const HomeButton2x1 = props => {
         <FastImage style={styles.homeBT_1_emoji} source={props.imageUrl} />
       </View>
       <View style={styles.articleContainer}>
-        <View sryle={styles.pgContainer}>
+        <View style={styles.pgContainer}>
           <Text style={styles.paragraph}>{props.Desc}</Text>
         </View>
         <View style={styles.headerContainer}>
@@ -94,10 +94,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-end',
   },
-  pgContainer: {
-    width: 30,
-  },
   paragraph: {
+    color: '#444444',
     lineHeight: 15.5,
     fontSize: 13,
     marginBottom: 5,

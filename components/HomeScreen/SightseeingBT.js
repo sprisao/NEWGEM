@@ -23,7 +23,7 @@ const SightseeingBT = props => {
         />
       </View>
       <View style={styles.articleContainer}>
-        <View sryle={styles.pgContainer}>
+        <View style={styles.pgContainer}>
           <Text style={styles.paragraph}>{props.Desc}</Text>
         </View>
         <View style={styles.headerContainer}>
@@ -89,10 +89,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
-  pgContainer: {
-    width: 30,
-  },
   paragraph: {
+    color: '#444444',
     ...Platform.select({
       ios: {fontFamily: 'AppleSDGothicNeo-UltraLight'},
       android: {fontFamily: 'AppleSDGothicNeoSB'},
