@@ -108,7 +108,7 @@ const DetailsScreen = props => {
     >
       <View style={styles.DetailsScreen}>
         <View style={styles.headerContainer}>
-          <View style={styles.detailHeader}>
+          <View style={styles.headerWrapper}>
             <View style={styles.HeaderLeft}>
               <Text style={styles.storeDesc}>{storeData.shortDescription}</Text>
               <Text style={styles.storeName}>{storeData.name}</Text>
@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
   },
-  detailHeader: {
+  headerWrapper: {
     flex: 1,
     width: '100%',
     paddingHorizontal: 12,
