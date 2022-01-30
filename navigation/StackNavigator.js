@@ -14,6 +14,7 @@ import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
 import CurationsScreen from '../screens/CurationsScreen';
 import SpotsSelectScreen from '../screens/SpotsSelectScreen';
 import SightSeeingScreen from '../screens/SightSeeingScreen';
+import ClassCategoryScreen from '../screens/ClassCategoryScreen';
 
 const Stack = createStackNavigator();
 
@@ -222,6 +223,44 @@ export default function StackNavigator() {
           headerTitleStyle: {
             color: 'black',
           },
+        })}
+      />
+      <Stack.Screen
+        name="Classes"
+        component={ClassCategoryScreen}
+        options={({route, navigation}) => ({
+          title: route.params.categoryName,
+          headerBackImage: () => (
+            <Ionicons
+              name="ios-chevron-back"
+              size={20}
+              color="black"
+              style={{marginLeft: 10}}
+            />
+          ),
+          headerBackTitleStyle: {
+            color: 'black',
+            fontSize: 15,
+            fontFamily: 'AppleSDGothicNeo-UltraLight',
+          },
+          ...Platform.select({
+            ios: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeo-Bold',
+              },
+            },
+            android: {
+              headerTitleStyle: {
+                color: 'black',
+                fontFamily: 'AppleSDGothicNeoB',
+              },
+            },
+          }),
+          headerTintColor: 'black',
+          // headerRight: () => (
+          //   <LocationPicker navigation={navigation} route={route} />
+          // ),
         })}
       />
     </Stack.Navigator>

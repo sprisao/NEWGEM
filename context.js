@@ -12,6 +12,7 @@ const Context = React.createContext();
 const StoreProvider = ({children}) => {
   const [categoryLoading, setCategoryLoading] = useState(true);
   const [secondLoading, setSecondLoading] = useState(true);
+  const [classLoading, setClassLoading] = useState(true);
   const [locationLoading, setLocationLoading] = useState(true);
   const [restaurantLoading, setRestaurantLoading] = useState(true);
   const [menuLoading, setMenuLoading] = useState(true);
@@ -25,6 +26,7 @@ const StoreProvider = ({children}) => {
 
   const [restaurants, setRestaurants] = useState([]);
   const [cafes, setCafes] = useState([]);
+  const [classes, setClasses] = useState([]);
   const [menu, setMenu] = useState([]);
   const [promotions, setPromotions] = useState([]);
   const [ads, setAds] = useState([]);
@@ -45,6 +47,7 @@ const StoreProvider = ({children}) => {
   const cafe = [];
   const menuItem = [];
   const promotion = [];
+  const gemClass = [];
   const ad = [];
   const spot = [];
   const other = [];
@@ -296,6 +299,30 @@ const StoreProvider = ({children}) => {
         },
       );
 
+    storeBase('classes')
+      .select({
+        view: 'data',
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            gemClass.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setClasses(gemClass);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            setClassLoading(false);
+          }
+        },
+      );
+
     // 기타 카테고리 업체들 불러오기
     storeBase('spotsCategory')
       .select({
@@ -345,6 +372,7 @@ const StoreProvider = ({children}) => {
         others,
         spotCategories,
         spotCategoryLoading,
+        classes,
       }}>
       {children}
     </Context.Provider>

@@ -16,7 +16,8 @@ import {
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
 import Banner from '../components/HomeScreen/Banner';
-import SightseeingBT from '../components/HomeScreen/SightseeingBT';
+// import SightseeingBT from '../components/HomeScreen/SightseeingBT';
+import ClassesBT from '../components/HomeScreen/ClassesBT';
 import CurationBT from '../components/HomeScreen/CurationBT';
 import Footer from '../components/Footer';
 
@@ -116,7 +117,7 @@ const HomeScreen = props => {
             />
           </View>
           <View style={styles.homeButton_Container}>
-            <SightseeingBT
+            {/* <SightseeingBT
               Category={'가볼만한 곳'}
               Desc={'관광, 레져,\n인생샷 스팟까지 한눈에!'}
               imageUrl={require('../assets/images/emojis/spot.png')}
@@ -125,6 +126,20 @@ const HomeScreen = props => {
                   name: 'SpotSelect',
                   params: {
                     categoryName: '가볼만한 곳',
+                    mainDataSet: spots,
+                  },
+                });
+              }}
+            /> */}
+            <ClassesBT
+              Category={'젬 클래스'}
+              Desc={'우리동네 재능마켓\n다양한 클래스 정보 '}
+              imageUrl={require('../assets/images/emojis/gift.png')}
+              onSelect={() => {
+                props.navigation.navigate({
+                  name: 'Classes',
+                  params: {
+                    categoryName: '젬 클래스',
                     mainDataSet: spots,
                   },
                 });

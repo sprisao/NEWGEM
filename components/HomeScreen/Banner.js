@@ -7,9 +7,9 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const Banner = props => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const {ads, adsLoading} = useGlobalContext();
+  const {ads} = useGlobalContext();
 
-  scrollRef = useRef();
+  const scrollRef = useRef();
 
   useEffect(() => {
     const counter = setTimeout(() => {
@@ -29,17 +29,10 @@ const Banner = props => {
     // get current position of the scrollView
     const contentOffset = event.nativeEvent.contentOffset.x;
 
-    const selectedIndex = Math.floor(contentOffset / viewSize);
-    setSelectedIndex(selectedIndex);
+    const selectedIndexNumber = Math.floor(contentOffset / viewSize);
+    setSelectedIndex(selectedIndexNumber);
   };
 
-  // if (adsLoading) {
-  //   return (
-  //     <View style={{ flex: 1 }}>
-  //       <Text>로딩중</Text>
-  //     </View>
-  //   );
-  // }
   return (
     <View style={styles.container}>
       <ScrollView
