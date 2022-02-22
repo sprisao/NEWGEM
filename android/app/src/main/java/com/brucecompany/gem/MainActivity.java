@@ -1,4 +1,4 @@
-package com.newgem;
+package com.brucecompany.gem;
 
 import android.os.Bundle; // here
 import com.facebook.react.ReactActivity;
