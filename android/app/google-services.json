@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "592721340078",
+    "project_id": "gemnative-642d4",
+    "storage_bucket": "gemnative-642d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592721340078:android:dffb83275278d6e1aa2f3f",
+        "android_client_info": {
+          "package_name": "com.brucecompany.gem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592721340078-35av59ntqcp8v4rbfi9s9avruf62ett6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brucecompany.gem",
+            "certificate_hash": "d2d18293473b5dcace344539eea4416e97a52bdd"
+          }
+        },
+        {
+          "client_id": "592721340078-98ogm20c8hhr2tkev4ppjj6agk3lcahj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAEixoaMVGstC6OBuNbOSnDTWH1GV8eSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592721340078-98ogm20c8hhr2tkev4ppjj6agk3lcahj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
