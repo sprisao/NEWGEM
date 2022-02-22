@@ -77,7 +77,7 @@ const CategoryScreen = props => {
   const scrollHandler = e => {
     const offset = e.nativeEvent.contentOffset.x;
     const pageIndex = Math.floor(offset / deviceWidth);
-    const selectedIndex = Platform.OS === 'ios' ? pageIndex : pageIndex + 1;
+    const selectedIndex = Platform.OS === 'ios' ? pageIndex : pageIndex;
 
     setSelectedIndex(selectedIndex);
     if (offset > 0) {

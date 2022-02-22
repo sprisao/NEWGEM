@@ -1,16 +1,31 @@
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import React from 'react';
 import {useGlobalContext} from '../context';
 
-const ClassCategoryScreen = () => {
+const ClassCategoryScreen = props => {
   const {classes} = useGlobalContext();
-  console.log(classes);
 
   const ClassTile = data => {
     const tile = data.item;
     return (
-      <TouchableOpacity style={styles.tile}>
+      <TouchableOpacity
+        style={styles.tile}
+        onPress={() => {
+          props.navigation.navigate({
+            name: 'Class',
+            params: {
+              classData: data.item,
+            },
+          });
+        }}>
         <View style={styles.tileWrapper}>
           <View style={styles.imageWrapper}>
             <FastImage
@@ -29,6 +44,7 @@ const ClassCategoryScreen = () => {
               })}
             </View>
             <View style={styles.tagsWrapper} numberOfLines={1}>
+              {console.log(tile.field)}
               {tile.field.map(field => {
                 return (
                   <View key={field.name} style={styles.field}>
@@ -48,7 +64,7 @@ const ClassCategoryScreen = () => {
     <View style={styles.screen}>
       <View style={styles.headerContainer}>
         {/* <Text style={styles.subHeader}>우리 지역의 다양한 클래스</Text> */}
-        <Text style={styles.header}>젬 클래스 🎁</Text>
+        <Text style={styles.header}>젬 클래스</Text>
       </View>
       <FlatList
         data={classes}
@@ -67,7 +83,14 @@ export default ClassCategoryScreen;
 
 const styles = StyleSheet.create({
   headerContainer: {paddingHorizontal: 8, marginVertical: 3},
-  header: {fontFamily: 'Apple SD Gothic Neo Bold', fontSize: 24},
+  header: {
+    ...Platform.select({
+      ios: {fontFamily: 'Apple SD Gothic Neo SemiBold'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
+    fontSize: 24,
+    color: 'black',
+  },
   screen: {
     flex: 1,
     paddingTop: 15,
@@ -75,16 +98,16 @@ const styles = StyleSheet.create({
   },
   tile: {
     flex: 1,
-    padding: 8,
+    padding: 5,
+    height: 'auto',
   },
   tileWrapper: {
     width: '100%',
-    height: 225,
     flexDirection: 'column',
   },
   imageWrapper: {
     width: '100%',
-    height: 185,
+    height: 175,
     borderRadius: 8,
     overflow: 'hidden',
   },
@@ -99,30 +122,46 @@ const styles = StyleSheet.create({
   },
   articleWrapper: {
     width: '100%',
-    paddingTop: 10,
+    paddingTop: 8,
+    paddingHorizontal: 2,
   },
   tileTitle: {
-    fontFamily: 'Apple SD Gothic Neo Regular',
+    ...Platform.select({
+      ios: {fontFamily: 'Apple SD Gothic Neo Regular'},
+      android: {fontFamily: 'AppleSDGothicNeoR'},
+    }),
+    color: 'black',
     fontSize: 14,
     // letterSpacing: -0.5,
   },
   tag: {
-    padding: 2.5,
+    paddingVertical: 3,
+    paddingHorizontal: 5,
+    ...Platform.select({
+      android: {paddingBottom: 4},
+    }),
     borderWidth: 0.5,
     marginRight: 3,
-    borderRadius: 2,
+    borderRadius: 6,
     marginBottom: 3,
-    backgroundColor: '#e8e8e8',
+    backgroundColor: '#f1f1f1',
     borderColor: '#8888',
   },
   tagText: {
     fontSize: 12,
-    fontFamily: 'Apple SD Gothic Neo Light',
+    ...Platform.select({
+      ios: {fontFamily: 'Apple SD Gothic Neo Light'},
+      android: {fontFamily: 'AppleSDGothicNeoL'},
+    }),
+    color: 'black',
   },
-  field: {marginRight: 3, marginBottom: 3},
+  field: {marginRight: 3, marginBottom: 2},
   fieldText: {
-    fontFamily: 'Apple SD Gothic Neo SemiBold',
-    fontSize: 11,
+    ...Platform.select({
+      ios: {fontFamily: 'Apple SD Gothic Neo SemiBold'},
+      android: {fontFamily: 'AppleSDGothicNeoSB'},
+    }),
+    fontSize: 13,
     color: '#888',
   },
 });
