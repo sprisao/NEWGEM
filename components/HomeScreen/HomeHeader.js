@@ -24,6 +24,17 @@ const HomeHeader = props => {
   const handleTab = () => {
     setModalVisible(true);
   };
+
+  const loginTest = () => {
+     props.navigation.navigate({
+                  name: '로그인',
+                  // params: {
+                  //   categoryName: '맛집',
+                  //   categoryId: 'recxEYsUuSaVk3ge2',
+                  //   mainDataSet: restaurants,
+                  // },
+                });
+  }
   return (
     <View style={styles.homeHeader}>
       <View style={styles.wrapper}>
@@ -53,7 +64,7 @@ const HomeHeader = props => {
                 trackColor={{false: '#767577', true: '#81b0ff'}}
                 thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
                 ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleSwitch}
+                onValueChange={loginTest}
                 value={isEnabled}
                 style={
                   Platform.OS === 'ios'

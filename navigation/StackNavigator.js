@@ -5,6 +5,9 @@ import {TransitionPresets} from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+
 import SecondSelectScreen from '../screens/SecondSelectScreen';
 import CategoryScreen from '../screens/CategoryScreen';
 import LocationPicker from '../components/CategoryScreen/LocationPicker';
@@ -29,6 +32,16 @@ export default function StackNavigator() {
           headerShown: false,
         }}
       />
+      
+      <Stack.Screen
+        name="로그인"
+        component={LoginScreen}
+        />
+
+      <Stack.Screen
+        name="회원가입"
+        component={RegisterScreen}
+        />
 
       <Stack.Screen
         name="SecondSelect"

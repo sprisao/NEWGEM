@@ -1,4 +1,5 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
+
 import {
   StyleSheet,
   View,
@@ -39,6 +40,7 @@ const HomeScreen = props => {
   };
 
   const link = 'https://linktr.ee/gemchelin';
+
 
   const onShare = async () => {
     try {

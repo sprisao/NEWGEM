@@ -7,9 +7,21 @@ import SplashScreen from 'react-native-splash-screen';
 
 import StackNavigator from './navigation/StackNavigator';
 
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
 const App = () => {
   const routeNameRef = React.useRef();
   const navigationRef = React.useRef();
+
+  const googleSignIn = () =>{
+    GoogleSignin.configure({
+  webClientId: '592721340078-98ogm20c8hhr2tkev4ppjj6agk3lcahj.apps.googleusercontent.com',
+});
+  }
+  useEffect(() => {
+    googleSignIn()
+  },)
+  
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
