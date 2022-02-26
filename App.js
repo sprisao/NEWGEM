@@ -1,32 +1,51 @@
 import analytics from '@react-native-firebase/analytics';
-import React, {useEffect, userRef} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import React, {useEffect, useRef, useState} from 'react';
+import {NavigationContainer } from '@react-navigation/native';
 
 import {StoreProvider} from './context';
 import SplashScreen from 'react-native-splash-screen';
 
 import StackNavigator from './navigation/StackNavigator';
 
+import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-const App = () => {
-  const routeNameRef = React.useRef();
-  const navigationRef = React.useRef();
+const App = (props) => {
+  const routeNameRef = useRef();
+  const navigationRef = useRef();
 
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  // // Handle user state changes
+
+  const onAuthStateChanged = (user) => {
+    setUser(user);
+    if(initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; 
+  }, [])
+  
   const googleSignIn = () =>{
     GoogleSignin.configure({
   webClientId: '592721340078-98ogm20c8hhr2tkev4ppjj6agk3lcahj.apps.googleusercontent.com',
 });
   }
+  
   useEffect(() => {
     googleSignIn()
-  },)
+  },[])
   
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
     }, 1500);
   }, []);
+
   return (
     <StoreProvider>
       <NavigationContainer ref={navigationRef}
