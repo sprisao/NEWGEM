@@ -44,14 +44,14 @@ const FireStoreTest = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{flex: 1}}>
+      <View style={{flex: 1}}>
         <FlatList
           style={{flex: 1}}
           data={todos}
           keyExtractor={item => item.id}
           renderItem={({item}) => <Todo {...item} />}
         />
-      </ScrollView>
+      </View>
       <TextInput
         label={"New Todo"}
         placeholder="useless placeholder"
