@@ -12,8 +12,6 @@ const FireStoreTest = () => {
 
   const ref = firestore().collection("todos");
 
-  const users = firestore().collection("users").get();
-
   async function addTodo() {
     // Adding new Todos //
     await ref.add({
