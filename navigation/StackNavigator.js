@@ -1,24 +1,25 @@
-import React from 'react';
-import {Platform} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {TransitionPresets} from '@react-navigation/stack';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import React from "react";
+import {Platform} from "react-native";
+import {createStackNavigator} from "@react-navigation/stack";
+import {TransitionPresets} from "@react-navigation/stack";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import HomeScreen from '../screens/HomeScreen';
-import LoginScreen from '../screens/LoginScreen';
-import RegisterScreen from '../screens/RegisterScreen';
+import HomeScreen from "../screens/HomeScreen";
+import LoginScreen from "../screens/LoginScreen";
+import RegisterScreen from "../screens/RegisterScreen";
+import FireStoreTest from "../screens/FireStoreTest";
 
-import SecondSelectScreen from '../screens/SecondSelectScreen';
-import CategoryScreen from '../screens/CategoryScreen';
-import LocationPicker from '../components/CategoryScreen/LocationPicker';
-import DetailsScreen from '../screens/DetailsScreen';
-import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
-import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
-import CurationsScreen from '../screens/CurationsScreen';
-import SpotsSelectScreen from '../screens/SpotsSelectScreen';
-import SightSeeingScreen from '../screens/SightSeeingScreen';
-import ClassCategoryScreen from '../screens/ClassCategoryScreen';
-import ClassScreen from '../screens/ClassScreen';
+import SecondSelectScreen from "../screens/SecondSelectScreen";
+import CategoryScreen from "../screens/CategoryScreen";
+import LocationPicker from "../components/CategoryScreen/LocationPicker";
+import DetailsScreen from "../screens/DetailsScreen";
+import DetailsHeaderRight from "../components/DetailsScreen/HeaderRight";
+import DetailsCuration from "../components/DetailsScreen/DetailsCuration";
+import CurationsScreen from "../screens/CurationsScreen";
+import SpotsSelectScreen from "../screens/SpotsSelectScreen";
+import SightSeeingScreen from "../screens/SightSeeingScreen";
+import ClassCategoryScreen from "../screens/ClassCategoryScreen";
+import ClassScreen from "../screens/ClassScreen";
 
 const Stack = createStackNavigator();
 
@@ -32,34 +33,25 @@ export default function StackNavigator() {
           headerShown: false,
         }}
       />
-      
-      <Stack.Screen
-        name="로그인"
-        component={LoginScreen}
-        />
 
-      <Stack.Screen
-        name="회원가입"
-        component={RegisterScreen}
-        />
+      <Stack.Screen name="로그인" component={LoginScreen} />
+
+      <Stack.Screen name="회원가입" component={RegisterScreen} />
+
+      <Stack.Screen name="CRUD" component={FireStoreTest} />
 
       <Stack.Screen
         name="SecondSelect"
         component={SecondSelectScreen}
         options={({route}) => ({
-          title: '카테고리',
+          title: "카테고리",
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
-          headerBackTitleStyle: {color: 'black', fontSize: 15},
-          headerTintColor: 'black',
+          headerBackTitleStyle: {color: "black", fontSize: 15},
+          headerTintColor: "black",
           headerTitleStyle: {
-            color: 'black',
+            color: "black",
           },
         })}
       />
@@ -69,37 +61,30 @@ export default function StackNavigator() {
         options={({route, navigation}) => ({
           title: route.params.categoryName,
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
           headerBackTitleStyle: {
-            color: 'black',
+            color: "black",
             fontSize: 15,
-            fontFamily: 'AppleSDGothicNeo-UltraLight',
+            fontFamily: "AppleSDGothicNeo-UltraLight",
           },
           ...Platform.select({
             ios: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeo-Bold',
+                color: "black",
+                fontFamily: "AppleSDGothicNeo-Bold",
               },
             },
             android: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeoB',
+                color: "black",
+                fontFamily: "AppleSDGothicNeoB",
               },
             },
           }),
 
-          headerTintColor: 'black',
-          headerRight: () => (
-            <LocationPicker navigation={navigation} route={route} />
-          ),
+          headerTintColor: "black",
+          headerRight: () => <LocationPicker navigation={navigation} route={route} />,
         })}
       />
 
@@ -109,29 +94,24 @@ export default function StackNavigator() {
         options={({route}) => ({
           title: route.params.storeName,
           // headerTransparent: true,
-          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
-          headerTintColor: 'black',
+          headerBackTitleStyle: {color: "transparent", fontSize: 15},
+          headerTintColor: "black",
           ...Platform.select({
             ios: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeo-Bold',
+                color: "black",
+                fontFamily: "AppleSDGothicNeo-Bold",
               },
             },
             android: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeoB',
+                color: "black",
+                fontFamily: "AppleSDGothicNeoB",
               },
             },
           }),
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
           // headerRight: () => <DetailsHeaderRight />,
         })}
@@ -140,20 +120,15 @@ export default function StackNavigator() {
         name="DetailsCuration"
         component={DetailsCuration}
         options={({route}) => ({
-          title: '큐레이션',
+          title: "큐레이션",
           // headerTransparent: true,
-          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
-          headerTintColor: 'black',
+          headerBackTitleStyle: {color: "transparent", fontSize: 15},
+          headerTintColor: "black",
           // headerTitleStyle: {
           //   color: 'transparent',
           // },
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
           headerRight: () => <DetailsHeaderRight />,
           ...TransitionPresets.ModalPresentationIOS,
@@ -164,34 +139,27 @@ export default function StackNavigator() {
         name="Curations"
         component={CurationsScreen}
         options={({route, navigation}) => ({
-          title: '젬 큐레이션 ✨',
+          title: "젬 큐레이션 ✨",
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
-          headerBackTitleStyle: {color: 'black', fontSize: 15},
-          headerTintColor: 'black',
+          headerBackTitleStyle: {color: "black", fontSize: 15},
+          headerTintColor: "black",
           ...Platform.select({
             ios: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeo-Bold',
+                color: "black",
+                fontFamily: "AppleSDGothicNeo-Bold",
               },
             },
             android: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeoB',
+                color: "black",
+                fontFamily: "AppleSDGothicNeoB",
               },
             },
           }),
-          headerRight: () => (
-            <LocationPicker navigation={navigation} route={route} />
-          ),
+          headerRight: () => <LocationPicker navigation={navigation} route={route} />,
         })}
       />
 
@@ -199,7 +167,7 @@ export default function StackNavigator() {
         name="SpotSelect"
         component={SpotsSelectScreen}
         options={({route, navigation}) => ({
-          title: '카테고리',
+          title: "카테고리",
           headerBackImage: () => (
             <Ionicons
               name="ios-chevron-back"
@@ -208,7 +176,7 @@ export default function StackNavigator() {
               style={{marginLeft: 10}}
             />
           ),
-          headerBackTitleStyle: {color: 'white'},
+          headerBackTitleStyle: {color: "white"},
           // headerTransparent: true,
 
           // headerTintColor: 'white',
@@ -222,20 +190,15 @@ export default function StackNavigator() {
         name="Spots"
         component={SightSeeingScreen}
         options={({route, navigation}) => ({
-          title: '가볼만한 곳',
+          title: "가볼만한 곳",
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
-          headerBackTitleStyle: {color: 'black', fontSize: 15},
+          headerBackTitleStyle: {color: "black", fontSize: 15},
           // headerTransparent: true,
-          headerTintColor: 'black',
+          headerTintColor: "black",
           headerTitleStyle: {
-            color: 'black',
+            color: "black",
           },
         })}
       />
@@ -245,33 +208,28 @@ export default function StackNavigator() {
         options={({route, navigation}) => ({
           title: route.params.categoryName,
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
           headerBackTitleStyle: {
-            color: 'black',
+            color: "black",
             fontSize: 15,
-            fontFamily: 'AppleSDGothicNeo-UltraLight',
+            fontFamily: "AppleSDGothicNeo-UltraLight",
           },
           ...Platform.select({
             ios: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeo-Bold',
+                color: "black",
+                fontFamily: "AppleSDGothicNeo-Bold",
               },
             },
             android: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeoB',
+                color: "black",
+                fontFamily: "AppleSDGothicNeoB",
               },
             },
           }),
-          headerTintColor: 'black',
+          headerTintColor: "black",
           // headerRight: () => (
           //   <LocationPicker navigation={navigation} route={route} />
           // ),
@@ -283,29 +241,24 @@ export default function StackNavigator() {
         options={({route}) => ({
           title: route.params.storeName,
           // headerTransparent: true,
-          headerBackTitleStyle: {color: 'transparent', fontSize: 15},
-          headerTintColor: 'black',
+          headerBackTitleStyle: {color: "transparent", fontSize: 15},
+          headerTintColor: "black",
           ...Platform.select({
             ios: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeo-Bold',
+                color: "black",
+                fontFamily: "AppleSDGothicNeo-Bold",
               },
             },
             android: {
               headerTitleStyle: {
-                color: 'black',
-                fontFamily: 'AppleSDGothicNeoB',
+                color: "black",
+                fontFamily: "AppleSDGothicNeoB",
               },
             },
           }),
           headerBackImage: () => (
-            <Ionicons
-              name="ios-chevron-back"
-              size={20}
-              color="black"
-              style={{marginLeft: 10}}
-            />
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
           ),
           // headerRight: () => <DetailsHeaderRight />,
         })}
