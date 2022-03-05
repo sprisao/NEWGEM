@@ -1,83 +1,158 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import {StyleSheet, Text, View, Button} from "react-native";
 
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from "react";
 
-import auth from "@react-native-firebase/auth"
-import { GoogleSignin, GoogleSigninButton} from '@react-native-google-signin/google-signin'
-import { appleAuth } from '@invertase/react-native-apple-authentication';;
-import { AppleButton } from '@invertase/react-native-apple-authentication';
+import auth from "@react-native-firebase/auth";
 
-const LoginScreen = () => {
-const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState()
-  
+import {GoogleSignin, GoogleSigninButton} from "@react-native-google-signin/google-signin";
+
+import {TextInput, TouchableOpacity} from "react-native-gesture-handler";
+
+const LoginScreen = props => {
+  const [user, setUser] = useState();
+
+  const [initializing, setInitializing] = useState(true);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [pwCheck, setPwCheck] = useState(false);
+  const [emailCheck, setEmailCheck] = useState(false);
+
+  const [emailErrMsg, setEmailErrMsg] = useState(false);
+  const [pwErrMsg, setPwErrMsg] = useState(false);
+
   useEffect(() => {
-    if(auth().currentUser) { setUser(auth().currentUser)}
-  }, [])
+    if (auth().currentUser) {
+      setUser(auth().currentUser);
+    }
+  }, []);
 
-   const onAuthStateChanged = (user) => {
+  const onAuthStateChanged = user => {
     setUser(user);
-    if(initializing) setInitializing(false);
-  }
+    if (initializing) setInitializing(false);
+  };
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; 
-  }, [])
-  
+    return subscriber;
+  }, []);
 
   const handleLogout = () => {
-    auth().signOut()
-  }
-  console.log(auth().currentUser)
+    auth().signOut();
+  };
 
   const onGoogleButtonPress = async () => {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     return auth().signInWithCredential(googleCredential);
-  }
+  };
 
-  async function onAppleButtonPress() {
-    // Start the sign-in request
-    const appleAuthRequestResponse = await appleAuth.performRequest({
-      requestedOperation: appleAuth.Operation.LOGIN,
-      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
-    });
-  
-    // Ensure Apple returned a user identityToken
-    if (!appleAuthRequestResponse.identityToken) {
-      throw new Error('Apple Sign-In failed - no identify token returned');
+  const checkEmail = e => {
+    var regExp =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    // 형식에 맞는 경우 true 리턴
+    const result = regExp.test(e);
+    {
+      result ? setEmailCheck(true) & setEmail(e) : setEmailCheck(false);
     }
-  
-    // Create a Firebase credential from the response
-    const { identityToken, nonce } = appleAuthRequestResponse;
-    const appleCredential = auth.AppleAuthProvider.credential(identityToken, nonce);
-  
-    // Sign the user in with the credential
-    return auth().signInWithCredential(appleCredential);
-  }
-  
-  
-  
+    console.log(result);
+  };
+
+  const checkPassword = e => {
+    if (e !== "") {
+      setPassword(e);
+      setPwCheck(true);
+    } else {
+      setPwCheck(false);
+    }
+  };
+
+  const showErrMsg = () => {
+    setEmailErrMsg(!emailCheck);
+    setPwErrMsg(!pwCheck);
+  };
+
+  const clearErrMsg = () => {
+    setEmailErrMsg(false);
+    setPwErrMsg(false);
+  };
+
+  console.log(email);
+  const handleSubmit = () => {
+    console.log("submit 들어왔고");
+    console.log("pwCheck", pwCheck);
+    console.log("emailCheck", emailCheck);
+    console.log(email);
+    if (pwCheck && emailCheck) {
+      // clearErrMsg();
+      auth().signInWithEmailAndPassword(email, password);
+    } else {
+      showErrMsg();
+    }
+  };
+
   return (
-        <View>
-        <Text>LoginScreen</Text>
-        {user ? 
-        <Button onPress={handleLogout} title="로그아웃 "></Button>:
-        <><GoogleSigninButton onPress={() => onGoogleButtonPress()} /><AppleButton
-          buttonStyle={AppleButton.Style.WHITE}
-          buttonType={AppleButton.Type.SIGN_IN}
-          style={{
-            width: 160,
-            height: 45,
-          }}
-          onPress={() => onAppleButtonPress().then(() => console.log('Apple sign-in complete!'))} /></>
-      }
-        </View>
-        
-  )
-}
+    <View style={styles.screen}>
+      {user ? (
+        <Button onPress={handleLogout} title="로그아웃"></Button>
+      ) : (
+        <>
+          <TextInput
+            style={styles.textInput}
+            onChange={e => checkEmail(e.nativeEvent.text)}
+            autoCapitalize="none"
+            placeholder="Email"></TextInput>
+          {emailErrMsg ? <Text>이메일을 확인해 주세요</Text> : null}
 
-export default LoginScreen
+          <TextInput
+            style={styles.textInput}
+            placeholder="Password"
+            autoCapitalize="none"
+            secureTextEntry={true}
+            onChange={e => checkPassword(e.nativeEvent.text)}></TextInput>
+          {pwErrMsg ? <Text>비밀번호를 확인해 주세요</Text> : null}
 
-const styles = StyleSheet.create({})
+          <TouchableOpacity style={styles.loginBtn_Container} onPress={() => handleSubmit()}>
+            <Text>로그인</Text>
+          </TouchableOpacity>
+
+          <GoogleSigninButton onPress={() => onGoogleButtonPress()} />
+          <TouchableOpacity
+            onPress={() =>
+              props.navigation.navigate({
+                name: "회원가입",
+              })
+            }>
+            <Text>회원가입</Text>
+          </TouchableOpacity>
+        </>
+      )}
+    </View>
+  );
+};
+
+export default LoginScreen;
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "yellow",
+  },
+  textInput: {
+    width: 200,
+    height: 50,
+  },
+  loginBtn_Container: {
+    width: 120,
+    height: 30,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 10,
+    backgroundColor: "green",
+    borderRadius: 8,
+  },
+});
