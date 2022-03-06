@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Alert,
 } from "react-native";
 
 import React, {useState, useEffect, useRef} from "react";
@@ -33,30 +34,33 @@ const LoginScreen = props => {
 
   const scrollRef = useRef();
 
+  const onAuthStateChanged = user => {
+    setUser(user);
+  };
+
   useEffect(() => {
+    console.log(auth().currentUser);
     if (auth().currentUser) {
       setUser(auth().currentUser);
     }
   }, []);
 
-  const onAuthStateChanged = user => {
-    setUser(user);
-    if (initializing) setInitializing(false);
-  };
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
-  }, []);
-
   const handleLogout = () => {
+    console.log("로그아웃");
     auth().signOut();
   };
 
   const onGoogleButtonPress = async () => {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    return auth().signInWithCredential(googleCredential);
+    console.log(googleCredential);
+    return auth()
+      .signInWithCredential(googleCredential)
+      .then(() => {
+        props.navigation.navigate({
+          name: "홈",
+        });
+      });
   };
 
   const checkEmail = e => {
@@ -88,10 +92,29 @@ const LoginScreen = props => {
     setPwErrMsg(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (pwCheck && emailCheck) {
+      console.log("로그인 시도");
       clearErrMsg();
-      auth().signInWithEmailAndPassword(email, password);
+      const user = await auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          props.navigation.navigate({
+            name: "홈",
+          });
+        })
+        .catch(error => {
+          if (error.code === "auth/too-many-requests") {
+            Alert.alert("잘못된 비밀번호", "비밀번호를 확인 해 주세요 ");
+          }
+          if (error.code === "auth/user-not-found") {
+            Alert.alert("사용자 찾을 수 없음", "해당 이메일로 가입된 사용자가 없습니다.");
+          }
+          if (error.code === "auth/too-many-requests") {
+            Alert.alert("너무 많은 로그인 시도", "잠시 뒤 다시 시도해 주세요");
+          }
+          console.log(error);
+        });
     } else {
       showErrMsg();
     }

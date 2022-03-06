@@ -15,7 +15,7 @@ import FastImage from "react-native-fast-image";
 
 import auth from "@react-native-firebase/auth";
 
-const PwResetScreen = () => {
+const PwResetScreen = props => {
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState(false);
   const [emailErrMsg, setEmailErrMsg] = useState(false);
@@ -93,9 +93,11 @@ const PwResetScreen = () => {
           <TouchableOpacity style={styles.loginBtn} onPress={() => handleSubmit()}>
             <Text style={styles.loginBtn_Text}>확인</Text>
           </TouchableOpacity>
-          <View style={styles.optionsContainer}>
+          <TouchableOpacity
+            style={styles.optionsContainer}
+            onPress={() => props.navigation.navigate({name: "로그인"})}>
             <Text>로그인 하러가기 {">"}</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </ScrollView>

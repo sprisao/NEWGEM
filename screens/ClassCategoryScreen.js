@@ -1,14 +1,7 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
-import FastImage from 'react-native-fast-image';
-import React from 'react';
-import {useGlobalContext} from '../context';
+import {StyleSheet, Text, View, FlatList, TouchableOpacity, Platform} from "react-native";
+import FastImage from "react-native-fast-image";
+import React from "react";
+import {useGlobalContext} from "../context";
 
 const ClassCategoryScreen = props => {
   const {classes} = useGlobalContext();
@@ -20,7 +13,7 @@ const ClassCategoryScreen = props => {
         style={styles.tile}
         onPress={() => {
           props.navigation.navigate({
-            name: 'Class',
+            name: "Class",
             params: {
               classData: data.item,
             },
@@ -28,26 +21,22 @@ const ClassCategoryScreen = props => {
         }}>
         <View style={styles.tileWrapper}>
           <View style={styles.imageWrapper}>
-            <FastImage
-              source={{uri: tile.media[0].url}}
-              style={styles.tileImage}
-            />
+            <FastImage source={{uri: tile.media[0].url}} style={styles.tileImage} />
           </View>
           <View style={styles.articleWrapper}>
             <View style={styles.tagsWrapper}>
               {tile.tags.map(tag => {
                 return (
-                  <View key={tag.name} style={styles.tag}>
+                  <View key={tag} style={styles.tag}>
                     <Text style={styles.tagText}>{tag}</Text>
                   </View>
                 );
               })}
             </View>
             <View style={styles.tagsWrapper} numberOfLines={1}>
-              {console.log(tile.field)}
               {tile.field.map(field => {
                 return (
-                  <View key={field.name} style={styles.field}>
+                  <View key={field} style={styles.field}>
                     <Text style={styles.fieldText}>{field}</Text>
                   </View>
                 );
@@ -85,11 +74,11 @@ const styles = StyleSheet.create({
   headerContainer: {paddingHorizontal: 8, marginVertical: 3},
   header: {
     ...Platform.select({
-      ios: {fontFamily: 'Apple SD Gothic Neo SemiBold'},
-      android: {fontFamily: 'AppleSDGothicNeoSB'},
+      ios: {fontFamily: "Apple SD Gothic Neo SemiBold"},
+      android: {fontFamily: "AppleSDGothicNeoSB"},
     }),
     fontSize: 24,
-    color: 'black',
+    color: "black",
   },
   screen: {
     flex: 1,
@@ -99,38 +88,38 @@ const styles = StyleSheet.create({
   tile: {
     flex: 1,
     padding: 5,
-    height: 'auto',
+    height: "auto",
   },
   tileWrapper: {
-    width: '100%',
-    flexDirection: 'column',
+    width: "100%",
+    flexDirection: "column",
   },
   imageWrapper: {
-    width: '100%',
+    width: "100%",
     height: 175,
     borderRadius: 8,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   tagsWrapper: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
+    flexWrap: "wrap",
+    flexDirection: "row",
     marginBottom: 3,
   },
   tileImage: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   articleWrapper: {
-    width: '100%',
+    width: "100%",
     paddingTop: 8,
     paddingHorizontal: 2,
   },
   tileTitle: {
     ...Platform.select({
-      ios: {fontFamily: 'Apple SD Gothic Neo Regular'},
-      android: {fontFamily: 'AppleSDGothicNeoR'},
+      ios: {fontFamily: "Apple SD Gothic Neo Regular"},
+      android: {fontFamily: "AppleSDGothicNeoR"},
     }),
-    color: 'black',
+    color: "black",
     fontSize: 14,
     // letterSpacing: -0.5,
   },
@@ -144,24 +133,24 @@ const styles = StyleSheet.create({
     marginRight: 3,
     borderRadius: 6,
     marginBottom: 3,
-    backgroundColor: '#f1f1f1',
-    borderColor: '#8888',
+    backgroundColor: "#f1f1f1",
+    borderColor: "#8888",
   },
   tagText: {
     fontSize: 12,
     ...Platform.select({
-      ios: {fontFamily: 'Apple SD Gothic Neo Light'},
-      android: {fontFamily: 'AppleSDGothicNeoL'},
+      ios: {fontFamily: "Apple SD Gothic Neo Light"},
+      android: {fontFamily: "AppleSDGothicNeoL"},
     }),
-    color: 'black',
+    color: "black",
   },
   field: {marginRight: 3, marginBottom: 2},
   fieldText: {
     ...Platform.select({
-      ios: {fontFamily: 'Apple SD Gothic Neo SemiBold'},
-      android: {fontFamily: 'AppleSDGothicNeoSB'},
+      ios: {fontFamily: "Apple SD Gothic Neo SemiBold"},
+      android: {fontFamily: "AppleSDGothicNeoSB"},
     }),
     fontSize: 13,
-    color: '#888',
+    color: "#888",
   },
 });

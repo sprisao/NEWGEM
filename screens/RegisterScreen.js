@@ -8,7 +8,6 @@ import {
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
-  CheckBox,
 } from "react-native";
 
 import FastImage from "react-native-fast-image";
@@ -16,12 +15,17 @@ import FastImage from "react-native-fast-image";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 
+import Icon from "react-native-vector-icons/Ionicons";
+
 const RegisterScreen = props => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userAgreement, setUserAgreement] = useState(false);
+  const [privatePolicy, setPrivatePolicy] = useState(false);
+  const [marketingAgree, setMarketingAgree] = useState(false);
 
   const [pwCheck, setPwCheck] = useState(false);
   const [emailCheck, setEmailCheck] = useState(false);
@@ -76,6 +80,23 @@ const RegisterScreen = props => {
     checkEmail();
     checkPassword();
     register();
+  };
+
+  // 서비스 사용 동의 토글
+  const onServiceToggle = () => {
+    setUserAgreement(!userAgreement);
+  };
+
+  // 개인정보 취급 동의 토글
+
+  const onPrivateToggle = () => {
+    setPrivatePolicy(!privatePolicy);
+  };
+
+  // 마케팅 동의 토글
+
+  const onmarketingToggle = () => {
+    setMarketingAgree(!marketingAgree);
   };
 
   // Focus시 스크롤 다운
@@ -174,7 +195,39 @@ const RegisterScreen = props => {
                   <Text style={styles.policyTitle}>서비스 정책</Text>
                 </View>
                 <View style={styles.itemContainer}>
-                  <CheckBox></CheckBox>
+                  <TouchableOpacity onPress={() => onServiceToggle()}>
+                    <Icon
+                      name={userAgreement ? "ios-checkbox" : "square-outline"}
+                      size={25}
+                      color={userAgreement ? "#4E8ef7" : "black"}
+                    />
+                  </TouchableOpacity>
+                  <Text style={styles.policyRqText}>[필수]</Text>
+                  <Text style={styles.policyText}>서비스 이용약관에 동의합니다.</Text>
+                  <Text style={styles.policyAll}>전문보기</Text>
+                </View>
+                <View style={styles.itemContainer}>
+                  <TouchableOpacity onPress={() => onServiceToggle()}>
+                    <Icon
+                      name={userAgreement ? "ios-checkbox" : "square-outline"}
+                      size={25}
+                      color={userAgreement ? "#4E8ef7" : "black"}
+                    />
+                  </TouchableOpacity>
+                  <Text style={styles.policyRqText}>[필수]</Text>
+                  <Text style={styles.policyText}>개인정보 취급방침에 동의합니다.</Text>
+                  <Text style={styles.policyAll}>전문보기</Text>
+                </View>
+                <View style={styles.itemContainer}>
+                  <TouchableOpacity onPress={() => onServiceToggle()}>
+                    <Icon
+                      name={userAgreement ? "ios-checkbox" : "square-outline"}
+                      size={25}
+                      color={userAgreement ? "#4E8ef7" : "black"}
+                    />
+                  </TouchableOpacity>
+                  <Text style={styles.policyRqText}>[선택]</Text>
+                  <Text style={styles.policyText}>마케팅 수신 동의 (이벤트&할인정보)</Text>
                 </View>
               </View>
             </View>
@@ -206,7 +259,7 @@ const styles = StyleSheet.create({
   },
   contentsContainer: {
     flex: 1,
-    width: "80%",
+    width: "85%",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -238,7 +291,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   formContainer: {
-    width: "100%",
+    width: "95%",
     marginVertical: 5,
   },
   textInput: {
@@ -289,4 +342,20 @@ const styles = StyleSheet.create({
     marginTop: 12,
     justifyContent: "space-between",
   },
+  itemContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  policyContainer: {width: "95%", padding: "5%", backgroundColor: "#f3f3f3", marginVertical: 18},
+  policyWrapper: {},
+  policyTitle: {
+    ...Platform.select({
+      ios: {fontFamily: "AppleSDGothicNeo-SemiBold"},
+      android: {fontFamily: "AppleSDGothicNeoB"},
+    }),
+  },
+  policyRqText: {},
+  policyText: {},
+  policyAll: {},
 });

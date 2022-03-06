@@ -35,10 +35,49 @@ export default function StackNavigator() {
         }}
       />
 
-      <Stack.Screen name="로그인" component={LoginScreen} />
+      <Stack.Screen
+        name="로그인"
+        component={LoginScreen}
+        options={({route}) => ({
+          headerBackImage: () => (
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
+          ),
+          headerBackTitleStyle: {color: "black", fontSize: 15},
+          headerTintColor: "black",
+          headerTitleStyle: {
+            color: "black",
+          },
+        })}
+      />
 
-      <Stack.Screen name="회원가입" component={RegisterScreen} />
-      <Stack.Screen name="비밀번호 재설정" component={PwResetScreen} />
+      <Stack.Screen
+        name="회원가입"
+        component={RegisterScreen}
+        options={({route}) => ({
+          headerBackImage: () => (
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
+          ),
+          headerBackTitleStyle: {color: "black", fontSize: 15},
+          headerTintColor: "black",
+          headerTitleStyle: {
+            color: "black",
+          },
+        })}
+      />
+      <Stack.Screen
+        name="비밀번호 재설정"
+        component={PwResetScreen}
+        options={({route}) => ({
+          headerBackImage: () => (
+            <Ionicons name="ios-chevron-back" size={20} color="black" style={{marginLeft: 10}} />
+          ),
+          headerBackTitleStyle: {color: "black", fontSize: 15},
+          headerTintColor: "black",
+          headerTitleStyle: {
+            color: "black",
+          },
+        })}
+      />
 
       <Stack.Screen name="CRUD" component={FireStoreTest} />
 
