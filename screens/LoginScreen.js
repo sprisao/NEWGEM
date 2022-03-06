@@ -1,12 +1,21 @@
-import {StyleSheet, Text, View, Button} from "react-native";
+import {
+  StyleSheet,
+  Text,
+  ScrollView,
+  View,
+  Button,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 
 import auth from "@react-native-firebase/auth";
 
 import {GoogleSignin, GoogleSigninButton} from "@react-native-google-signin/google-signin";
 
-import {TextInput, TouchableOpacity} from "react-native-gesture-handler";
+import FastImage from "react-native-fast-image";
 
 const LoginScreen = props => {
   const [user, setUser] = useState();
@@ -21,6 +30,8 @@ const LoginScreen = props => {
 
   const [emailErrMsg, setEmailErrMsg] = useState(false);
   const [pwErrMsg, setPwErrMsg] = useState(false);
+
+  const scrollRef = useRef();
 
   useEffect(() => {
     if (auth().currentUser) {
@@ -56,7 +67,6 @@ const LoginScreen = props => {
     {
       result ? setEmailCheck(true) & setEmail(e) : setEmailCheck(false);
     }
-    console.log(result);
   };
 
   const checkPassword = e => {
@@ -78,57 +88,91 @@ const LoginScreen = props => {
     setPwErrMsg(false);
   };
 
-  console.log(email);
   const handleSubmit = () => {
-    console.log("submit 들어왔고");
-    console.log("pwCheck", pwCheck);
-    console.log("emailCheck", emailCheck);
-    console.log(email);
     if (pwCheck && emailCheck) {
-      // clearErrMsg();
+      clearErrMsg();
       auth().signInWithEmailAndPassword(email, password);
     } else {
       showErrMsg();
     }
   };
 
+  const handleScroll = () => {
+    scrollRef.current.scrollToEnd({animated: "true"});
+  };
+
   return (
-    <View style={styles.screen}>
-      {user ? (
-        <Button onPress={handleLogout} title="로그아웃"></Button>
-      ) : (
-        <>
-          <TextInput
-            style={styles.textInput}
-            onChange={e => checkEmail(e.nativeEvent.text)}
-            autoCapitalize="none"
-            placeholder="Email"></TextInput>
-          {emailErrMsg ? <Text>이메일을 확인해 주세요</Text> : null}
+    <ScrollView ref={scrollRef} style={styles.screen} showsVerticalScrollIndicator={false}>
+      <KeyboardAvoidingView style={styles.wrapper}>
+        {user ? (
+          <Button onPress={handleLogout} title="로그아웃"></Button>
+        ) : (
+          <View style={styles.contentsContainer}>
+            <View style={styles.logoContainer}>
+              <FastImage source={require("../assets/images/BI/logo.png")} style={styles.logo} />
+            </View>
+            <View style={styles.titleContainer}>
+              <Text style={styles.titleText}>로그인</Text>
+            </View>
+            <View style={styles.formContainer}>
+              <TextInput
+                style={styles.textInput}
+                blurOnSubmit={true}
+                onChange={e => checkEmail(e.nativeEvent.text)}
+                autoCapitalize="none"
+                onFocus={handleScroll}
+                placeholder="이메일"></TextInput>
+              {emailErrMsg ? (
+                <View style={styles.errorMsg_Container}>
+                  <Text style={styles.errorMsg}>🤭 이메일을 확인해 주세요</Text>
+                </View>
+              ) : null}
 
-          <TextInput
-            style={styles.textInput}
-            placeholder="Password"
-            autoCapitalize="none"
-            secureTextEntry={true}
-            onChange={e => checkPassword(e.nativeEvent.text)}></TextInput>
-          {pwErrMsg ? <Text>비밀번호를 확인해 주세요</Text> : null}
+              <TextInput
+                style={styles.textInput}
+                blurOnSubmit={true}
+                placeholder="비밀번호"
+                autoCapitalize="none"
+                secureTextEntry={true}
+                onFocus={handleScroll}
+                onChange={e => checkPassword(e.nativeEvent.text)}></TextInput>
+              {pwErrMsg ? (
+                <View style={styles.errorMsg_Container}>
+                  <Text style={styles.errorMsg}>🤭 비밀번호를 확인해 주세요</Text>
+                </View>
+              ) : null}
+            </View>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => handleSubmit()}>
+              <Text style={styles.loginBtn_Text}>로그인</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles.loginBtn_Container} onPress={() => handleSubmit()}>
-            <Text>로그인</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.loginBtn, styles.loginBtn_Google]}
+              onPress={() => onGoogleButtonPress()}>
+              <FastImage
+                source={require("../assets/images/SNS/google.png")}
+                style={styles.loginBtn_Logo}></FastImage>
+              <Text>Google 계정으로 계속하기</Text>
+            </TouchableOpacity>
 
-          <GoogleSigninButton onPress={() => onGoogleButtonPress()} />
-          <TouchableOpacity
-            onPress={() =>
-              props.navigation.navigate({
-                name: "회원가입",
-              })
-            }>
-            <Text>회원가입</Text>
-          </TouchableOpacity>
-        </>
-      )}
-    </View>
+            <View style={styles.optionsContainer}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({
+                    name: "회원가입",
+                  })
+                }>
+                <Text>이메일로 3초만에 가입하기 {">"}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => props.navigation.navigate({name: "비밀번호 재설정"})}>
+                <Text>비밀번호 재설정 {">"}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
@@ -137,22 +181,99 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: "white",
+  },
+  wrapper: {
+    flex: 1,
+    alignItems: "center",
+    ...Platform.select({
+      ios: {marginBottom: 300},
+      android: {marginBottom: 15},
+    }),
+  },
+  contentsContainer: {
+    flex: 1,
+    width: "80%",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "yellow",
+    justifyContent: "center",
+  },
+  logoContainer: {
+    width: "100%",
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 35,
+  },
+  logo: {
+    width: 50,
+    height: 55,
+  },
+  titleContainer: {
+    width: "95%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottomColor: "#333",
+    borderBottomWidth: 0.3,
+    paddingVertical: 15,
+  },
+  titleText: {
+    ...Platform.select({
+      ios: {fontFamily: "AppleSDGothicNeo-Light"},
+      android: {fontFamily: "AppleSDGothicNeoSB"},
+    }),
+    fontSize: 24,
+  },
+  formContainer: {
+    width: "100%",
+    marginVertical: 5,
   },
   textInput: {
-    width: 200,
+    marginTop: 13,
+    width: "100%",
+    padding: 15,
+    borderRadius: 8,
+    borderWidth: 0.3,
+    backgroundColor: "#f5f5f5",
     height: 50,
   },
-  loginBtn_Container: {
-    width: 120,
-    height: 30,
+  errorMsg_Container: {
+    paddingTop: 10,
+    paddingHorizontal: 15,
+  },
+  errorMsg: {
+    color: "red",
+  },
+  loginBtn: {
+    width: "100%",
+    height: 50,
+    flexDirection: "row",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 10,
-    backgroundColor: "green",
-    borderRadius: 8,
+    marginTop: 10,
+    backgroundColor: "black",
+    borderRadius: 20,
+    borderWidth: 0.2,
+  },
+  loginBtn_Logo: {
+    width: 25,
+    height: 25,
+    marginRight: 5,
+  },
+  loginBtn_Text: {
+    color: "white",
+    fontSize: 15,
+  },
+  loginBtn_Google: {
+    backgroundColor: "white",
+    borderWidth: 0.2,
+    // justifyContent: "flex-start",
+  },
+  optionsContainer: {
+    width: "99%",
+    flexDirection: "row",
+    marginTop: 12,
+    justifyContent: "space-between",
   },
 });

@@ -7,6 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
+import PwResetScreen from "../screens/PwResetScreen";
 import FireStoreTest from "../screens/FireStoreTest";
 
 import SecondSelectScreen from "../screens/SecondSelectScreen";
@@ -37,6 +38,7 @@ export default function StackNavigator() {
       <Stack.Screen name="로그인" component={LoginScreen} />
 
       <Stack.Screen name="회원가입" component={RegisterScreen} />
+      <Stack.Screen name="비밀번호 재설정" component={PwResetScreen} />
 
       <Stack.Screen name="CRUD" component={FireStoreTest} />
 
