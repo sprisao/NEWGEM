@@ -32,6 +32,7 @@ const RegisterScreen = props => {
 
   const [emailErrMsg, setEmailErrMsg] = useState(false);
   const [pwErrMsg, setPwErrMsg] = useState(false);
+  const [agmtErrMsg, setAgmtErrMsg] = useState(false);
 
   const scrollRef = useRef();
 
@@ -67,12 +68,18 @@ const RegisterScreen = props => {
   const showErrMsg = () => {
     setEmailErrMsg(!emailCheck);
     setPwErrMsg(!pwCheck);
+    if (!userAgreement || !privatePolicy) {
+      setAgmtErrMsg(true);
+    } else if (userAgreement && privatePolicy) {
+      setAgmtErrMsg(false);
+    }
   };
 
   // 유효성 통과시 메세지 제거
   const clearErrMsg = () => {
     setEmailErrMsg(false);
     setPasswordErrMsg(false);
+    setAgmtErrMsg(false);
   };
 
   // 유효성 체크
@@ -95,8 +102,16 @@ const RegisterScreen = props => {
 
   // 마케팅 동의 토글
 
-  const onmarketingToggle = () => {
+  const onMarketingToggle = () => {
     setMarketingAgree(!marketingAgree);
+  };
+
+  // 전체 동의 토글
+
+  const onAllToggle = () => {
+    setUserAgreement(true);
+    setPrivatePolicy(true);
+    setMarketingAgree(true);
   };
 
   // Focus시 스크롤 다운
@@ -104,8 +119,9 @@ const RegisterScreen = props => {
     scrollRef.current.scrollToEnd({animated: "true"});
   };
 
+  // 유효성 체크 후 회원가입 진행
   const register = async () => {
-    if (emailCheck && pwCheck) {
+    if (emailCheck && pwCheck && userAgreement && privatePolicy) {
       clearErrMsg();
       const user = await auth()
         .createUserWithEmailAndPassword(email, password)
@@ -116,6 +132,8 @@ const RegisterScreen = props => {
               uid: userCredential.user.uid,
               email: email,
               registerPassword: password,
+              userAgreement: userAgreement,
+              privatePolicy: privatePolicy,
             })
             .then(() => {
               props.navigation.navigate({
@@ -169,11 +187,6 @@ const RegisterScreen = props => {
                 secureTextEntry={true}
                 onFocus={handleScroll}
                 onChange={e => setPassword(e.nativeEvent.text)}></TextInput>
-              {pwErrMsg ? (
-                <View style={styles.errorMsg_Container}>
-                  <Text style={styles.errorMsg}>🤭 비밀번호가 일치하지 않습니다</Text>
-                </View>
-              ) : null}
 
               <TextInput
                 style={styles.textInput}
@@ -202,32 +215,53 @@ const RegisterScreen = props => {
                       color={userAgreement ? "#4E8ef7" : "black"}
                     />
                   </TouchableOpacity>
-                  <Text style={styles.policyRqText}>[필수]</Text>
-                  <Text style={styles.policyText}>서비스 이용약관에 동의합니다.</Text>
-                  <Text style={styles.policyAll}>전문보기</Text>
+                  <View style={styles.articleWrapper}>
+                    <View style={styles.articleWrapper2}>
+                      <Text style={[styles.policyRqText, {color: "red"}]}>[필수]</Text>
+                      <Text style={styles.policyText}>서비스 이용약관에 동의합니다.</Text>
+                    </View>
+                    <Text style={styles.policyAll}>전문보기</Text>
+                  </View>
                 </View>
                 <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => onServiceToggle()}>
+                  <TouchableOpacity onPress={() => onPrivateToggle()}>
                     <Icon
-                      name={userAgreement ? "ios-checkbox" : "square-outline"}
+                      name={privatePolicy ? "ios-checkbox" : "square-outline"}
                       size={25}
-                      color={userAgreement ? "#4E8ef7" : "black"}
+                      color={privatePolicy ? "#4E8ef7" : "black"}
                     />
                   </TouchableOpacity>
-                  <Text style={styles.policyRqText}>[필수]</Text>
-                  <Text style={styles.policyText}>개인정보 취급방침에 동의합니다.</Text>
-                  <Text style={styles.policyAll}>전문보기</Text>
+                  <View style={styles.articleWrapper}>
+                    <View style={styles.articleWrapper2}>
+                      <Text style={[styles.policyRqText, {color: "red"}]}>[필수]</Text>
+                      <Text style={styles.policyText}>개인정보 취급방침에 동의합니다.</Text>
+                    </View>
+                    <Text style={styles.policyAll}>전문보기</Text>
+                  </View>
                 </View>
+                {agmtErrMsg ? (
+                  <View>
+                    <Text>필수 이용약관에 동의해주세요</Text>
+                  </View>
+                ) : null}
                 <View style={styles.itemContainer}>
-                  <TouchableOpacity onPress={() => onServiceToggle()}>
+                  <TouchableOpacity onPress={() => onMarketingToggle()}>
                     <Icon
-                      name={userAgreement ? "ios-checkbox" : "square-outline"}
+                      name={marketingAgree ? "ios-checkbox" : "square-outline"}
                       size={25}
-                      color={userAgreement ? "#4E8ef7" : "black"}
+                      color={marketingAgree ? "#4E8ef7" : "black"}
                     />
                   </TouchableOpacity>
-                  <Text style={styles.policyRqText}>[선택]</Text>
-                  <Text style={styles.policyText}>마케팅 수신 동의 (이벤트&할인정보)</Text>
+                  <View style={styles.articleWrapper}>
+                    <View style={styles.articleWrapper2}>
+                      <Text style={styles.policyRqText}>[선택]</Text>
+                      <Text style={styles.policyText}>마케팅 수신 동의 (이벤트{"&"}할인정보)</Text>
+                    </View>
+                    <Text style={{color: "transparent"}}>전문보기</Text>
+                  </View>
+                </View>
+                <View style={styles.allToggleBtn}>
+                  <Button title="전체동의" onPress={() => onAllToggle()} />
                 </View>
               </View>
             </View>
@@ -241,6 +275,27 @@ const RegisterScreen = props => {
     </ScrollView>
   );
 };
+
+{
+  /* <div className={`Usage-Modal ${usageShow ? 'active' : 'inactive'}`}>
+<div className='Modal-Header'>
+  <h1 style={{ fontFamily: 'NotoSans-Kr', fontWeight: '900' }}>
+    서비스 이용약관
+  </h1>
+  <button onClick={handleClose} className='modal-closeButton'>
+    {' '}
+    <BsX />
+  </button>
+</div>
+<div className='Modal-Body'>
+  <img
+    src='https://res.cloudinary.com/diimwnnmj/image/upload/v1629782306/%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8B%E1%85%A3%E1%86%A8%E1%84%80%E1%85%AA%E1%86%AB_zhlkoa.jpg'
+    alt='이용 약관'
+    style={{ width: '100%' }}
+  />
+</div>
+</div> */
+}
 
 export default RegisterScreen;
 
@@ -259,7 +314,7 @@ const styles = StyleSheet.create({
   },
   contentsContainer: {
     flex: 1,
-    width: "85%",
+    width: "90%",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -318,9 +373,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    backgroundColor: "black",
+    backgroundColor: "#4E8ef7",
     borderRadius: 20,
-    borderWidth: 0.2,
   },
   loginBtn_Logo: {
     width: 25,
@@ -334,7 +388,6 @@ const styles = StyleSheet.create({
   loginBtn_Google: {
     backgroundColor: "white",
     borderWidth: 0.2,
-    // justifyContent: "flex-start",
   },
   optionsContainer: {
     width: "99%",
@@ -342,20 +395,46 @@ const styles = StyleSheet.create({
     marginTop: 12,
     justifyContent: "space-between",
   },
-  itemContainer: {
-    flexDirection: "row",
+  policyContainer: {
+    width: "95%",
+    padding: 13,
+    backgroundColor: "#f3f3f3",
+    marginVertical: 18,
+    borderRadius: 15,
+  },
+  policyWrapper: {
+    width: "100%",
+    flexDirection: "column",
     justifyContent: "space-between",
+  },
+  itemContainer: {
+    width: "100%",
+    marginVertical: 3,
+    flexDirection: "row",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
-  policyContainer: {width: "95%", padding: "5%", backgroundColor: "#f3f3f3", marginVertical: 18},
-  policyWrapper: {},
+  articleWrapper: {
+    width: "92%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    paddingBottom: 1.5,
+    paddingLeft: 3,
+  },
+  articleWrapper2: {
+    flexDirection: "row",
+  },
+  policyTitle_Container: {marginVertical: 8},
   policyTitle: {
     ...Platform.select({
       ios: {fontFamily: "AppleSDGothicNeo-SemiBold"},
       android: {fontFamily: "AppleSDGothicNeoB"},
     }),
+    fontSize: 14,
   },
-  policyRqText: {},
+  policyRqText: {marginRight: 3},
   policyText: {},
-  policyAll: {},
+  policyAll: {fontSize: 14.5, color: "#4E8ef7"},
+  allToggleBtn: {marginVertical: 6},
 });

@@ -176,9 +176,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    backgroundColor: "black",
+    backgroundColor: "#4E8ef7",
     borderRadius: 20,
-    borderWidth: 0.2,
   },
   loginBtn_Logo: {
     width: 25,
