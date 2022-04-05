@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`파이어테스트 화면이 정상적으로 들어오는가 1`] = `
+<View>
+  <Text>
+    Practice TDD
+  </Text>
+</View>
+`;

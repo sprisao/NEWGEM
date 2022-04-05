@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef} from "react";
 
 import {
   StyleSheet,
@@ -28,8 +28,6 @@ import {useGlobalContext} from "../context";
 
 import Video from "react-native-video";
 
-import firestore from "@react-native-firebase/firestore";
-
 const DEVICE_WIDTH = Dimensions.get("window").width;
 
 const HomeScreen = props => {
@@ -58,7 +56,7 @@ const HomeScreen = props => {
         console.log("dismissed");
       }
     } catch (error) {
-      alert(error.message);
+      console.log(error);
     }
   };
 
